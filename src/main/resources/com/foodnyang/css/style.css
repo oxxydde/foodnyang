@@ -1,0 +1,38 @@
+.root {
+    -fx-background-color: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: #b4b2b2;
+}
+
+#login-and-menu-color {
+    -fx-background-color: #3E92D1;
+}
+
+#main-color-button {
+    -fx-background-color: #2986cc;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+#title {
+    -fx-text-fill: white;
+}
+
+#admin-menu-button {
+    -fx-background-color:  #2986cc;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+}
+
+#menu-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+#text-and-password {
+    -fx-background-color: white;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-color: #a7a7a7;
+}

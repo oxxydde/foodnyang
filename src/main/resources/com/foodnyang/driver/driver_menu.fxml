@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.DriverMenuController">
+   <children>
+      <Text layoutX="261.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mitra" wrappingWidth="77.296875">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <VBox alignment="CENTER" layoutX="236.0" layoutY="114.0" prefHeight="200.0" prefWidth="266.0" spacing="20.0">
+         <children>
+            <Button fx:id="pesananAktifBtn" mnemonicParsing="false" onMouseClicked="#onPesananAktifClicked" prefHeight="51.0" prefWidth="124.0" text="PESANAN AKTIF" />
+            <Button fx:id="onKeuanganClicked" layoutX="81.0" layoutY="85.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="124.0" text="KEUANGAN" />
+         </children>
+      </VBox>
+      <Text layoutX="32.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halo, Dika" wrappingWidth="77.29687499999994" />
+   </children>
+</AnchorPane>

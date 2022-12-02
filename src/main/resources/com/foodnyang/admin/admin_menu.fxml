@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="login-and-menu-color" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.admin.AdminMenuController">
+   <children>
+      <AnchorPane layoutX="63.0" layoutY="67.0" prefHeight="318.0" prefWidth="473.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
+         <children>
+            <VBox layoutX="55.0" layoutY="35.0" prefHeight="218.0" prefWidth="362.0">
+               <children>
+                  <Button id="admin-menu-button" mnemonicParsing="false" onAction="#onDaftarPegawaiButtonClick" prefHeight="64.0" prefWidth="362.0" text="Daftar Pegawai">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Button>
+                  <Button id="admin-menu-button" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDaftarDriverButtonClick" prefHeight="64.0" prefWidth="362.0" text="Daftar Driver">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Button>
+                  <Button id="admin-menu-button" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="362.0" text="Daftar Customer">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Button>
+                  <Button id="admin-menu-button" layoutX="10.0" layoutY="156.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="362.0" text="Daftar Restaurant" />
+               </children>
+            </VBox>
+            <Button id="main-color-button" layoutX="364.0" layoutY="274.0" mnemonicParsing="false" onAction="#onSignOutButtonClick" prefHeight="29.0" prefWidth="96.0" text="Sign Out" />
+         </children></AnchorPane>
+      <Label id="title" alignment="CENTER" layoutX="129.0" layoutY="14.0" prefHeight="37.0" prefWidth="342.0" text="Admin Menu">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

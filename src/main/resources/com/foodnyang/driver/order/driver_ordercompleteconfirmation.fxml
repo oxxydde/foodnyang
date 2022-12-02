@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane prefHeight="93.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverCompleteConfirmationController">
+   <header>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="77.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apakah anda ingin menyelesaikan pesanan ini?" />
+            <Button layoutX="220.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onYesClicked" prefHeight="35.0" prefWidth="49.0" text="Ya" />
+            <Button layoutX="286.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onNoClicked" prefHeight="35.0" prefWidth="49.0" text="Tidak" />
+         </children>
+      </AnchorPane>
+   </header>
+   <content>
+      <HBox prefHeight="0.0" prefWidth="402.0" />
+   </content>
+</DialogPane>
