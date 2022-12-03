@@ -1,6 +1,8 @@
 package com.foodnyang.signup;
 
-import com.foodnyang.database.LoginModel;
+import com.foodnyang.FlowController;
+import com.foodnyang.database.AccountModel;
+import com.foodnyang.enums.signup.SignUpStatus;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,7 +35,23 @@ public class SignUpController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 if (!tf_name.getText().trim().isEmpty() && !tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    LoginModel.signUpUser(event, tf_name.getText(), tf_username.getText(), tf_password.getText());
+                    SignUpStatus result = AccountModel.signUpUser(event, tf_name.getText(), tf_username.getText(), tf_password.getText());
+
+                    switch (result) {
+                        case SUCCEED -> {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText("Account has been successfully registered! Now do login.");
+                            alert.show();
+                            FlowController.setStage("MainStage");
+                            FlowController.setScene("LoginScene");
+                        }
+                        case CONFLICT -> {
+                            System.out.println("User already exists!");
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("Username or password already exists!");
+                            alert.show();
+                        }
+                    }
                 } else {
                     System.out.println("Please fill in all information");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -46,7 +64,7 @@ public class SignUpController implements Initializable {
         back_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                LoginModel.changeScene(event, "/com/foodnyang/login/login_view.fxml","Login Page", tf_username.getText(), tf_password.getText());
+                FlowController.setScene("LoginScene");
             }
         });
     }

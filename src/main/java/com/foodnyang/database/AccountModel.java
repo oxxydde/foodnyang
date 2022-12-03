@@ -1,47 +1,22 @@
 package com.foodnyang.database;
 
+import com.foodnyang.enums.signup.LoginStatus;
+import com.foodnyang.enums.signup.SignUpStatus;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginModel {
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, String user_email, String password){
-        Parent root = null;
-
-        try {
-            root = FXMLLoader.load(LoginModel.class.getResource(fxmlFile));
-        } catch (IOException e) {
-                e.printStackTrace();
-        }
-
-        Stage stage;
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root);
-        String css = LoginModel.class.getResource("/com/foodnyang/css/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        if(fxmlFile.equals("/com/foodnyang/admin/admin_menu.fxml")){
-            stage.setTitle("Admin Menu");
-        }
-        stage.show();
-    }
-
-    public static void signUpUser(ActionEvent event, String name, String user_email, String password) {
+public class AccountModel {
+    public static SignUpStatus signUpUser(ActionEvent event, String name, String user_email, String password) {
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet resultSet = null;
         Connection conn = null;
+        SignUpStatus status = null;
+
         try {
             conn = FoodNyangDatabaseConnection.connection();
             psCheckUserExists = conn.prepareStatement("SELECT nama, user_email, password  FROM user_info WHERE user_email = ?");
@@ -49,19 +24,14 @@ public class LoginModel {
             resultSet = psCheckUserExists.executeQuery();
 
             if (resultSet.isBeforeFirst()) {
-                System.out.println("User already exists!");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Username or password already exists!");
-                alert.show();
+                status = SignUpStatus.CONFLICT;
             } else {
-                psInsert = conn.prepareStatement("INSERT INTO user_info(id, nama, user_email, password) VALUES (1234,?, ?, ?)");
+                psInsert = conn.prepareStatement("INSERT INTO user_info VALUES (1234, '0808', ?, ?, 'L', CONVERT(datetime, '2001-08-22'), CONVERT(datetime, '2001-08-22'), ?)");
                 psInsert.setString(1, name);
                 psInsert.setString(2, user_email);
                 psInsert.setString(3, password);
                 psInsert.executeUpdate();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Account has been successfully registered!");
-                alert.show();
+                status = SignUpStatus.SUCCEED;
             }
 
         } catch (SQLException e) {
@@ -93,15 +63,15 @@ public class LoginModel {
                     e.printStackTrace();
                 }
             }
-
         }
-
+        return status;
     }
 
-    public static void loginUser(ActionEvent event, String user_email, String password) {
+    public static LoginStatus loginUser(ActionEvent event, String user_email, String password) {
         Connection conn = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        LoginStatus status = null;
 
         try {
             conn = FoodNyangDatabaseConnection.connection();
@@ -111,19 +81,15 @@ public class LoginModel {
 
             if (!resultSet.isBeforeFirst()){
                 System.out.println("User not found in the database!");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("User not found! Please register first.");
-                alert.show();
+                status = LoginStatus.NO_ACCOUNT;
             } else {
                 while (resultSet.next()){
                     String retrievePassword = resultSet.getString("password");
                     if (retrievePassword.equals(password)){
-                        changeScene(event, "/com/foodnyang/driver/driver_menu.fxml","Driver Menu", user_email, password);
+                        status = LoginStatus.SUCCEED;
                     } else {
                         System.out.println("Username or password does not match!");
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Username or password does not match!");
-                        alert.show();
+                        status = LoginStatus.INCORRECT_CREDS;
                     }
                 }
             }
@@ -155,5 +121,6 @@ public class LoginModel {
                 }
             }
         }
+        return status;
     }
 }

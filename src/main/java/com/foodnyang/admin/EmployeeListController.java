@@ -1,5 +1,10 @@
 package com.foodnyang.admin;
 
-public class EmployeeListController {
+import com.foodnyang.FlowController;
 
+public class EmployeeListController {
+    public void onBackBtnClicked() {
+        FlowController.setStage("MainStage");
+        FlowController.setScene("AdminMenu");
+    }
 }

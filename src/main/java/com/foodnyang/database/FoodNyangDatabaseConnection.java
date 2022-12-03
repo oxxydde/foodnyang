@@ -7,11 +7,13 @@ import java.sql.SQLException;
 
 public class FoodNyangDatabaseConnection {
         static String connectionUrl =
-                "jdbc:sqlserver://LAPTOP-7LFLS68P;" +
+                "jdbc:sqlserver://LERTGA;" +
+                "user=myclient;" +
+                "password=HaloDunia!;" +
                 "database=FoodNyang;" +
                 "encrypt=true;" +
                 "trustServerCertificate=true;" +
-                "loginTimeout=30;" + "integratedSecurity=true";
+                "loginTimeout=30;";
         public static Connection connection () throws SQLException {
             return DriverManager.getConnection(connectionUrl);
         }
