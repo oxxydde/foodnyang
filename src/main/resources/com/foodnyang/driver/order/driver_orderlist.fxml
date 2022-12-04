@@ -21,5 +21,6 @@
       <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="287.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="216.0" />
       <Text layoutX="52.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
       <Button layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#onAddBtnClicked" text="Tambah" />
+      <Button fx:id="backBtn" layoutX="52.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="27.0" prefWidth="111.0" text="Kembali" />
    </children>
 </AnchorPane>

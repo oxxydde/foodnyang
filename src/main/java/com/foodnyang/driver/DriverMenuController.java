@@ -18,4 +18,9 @@ public class DriverMenuController {
     public void onKeuanganClicked() {
 
     }
+
+    public void onSignOutBtnClicked() {
+        FlowController.setStage("MainStage");
+        FlowController.setScene("LoginScene");
+    }
 }

@@ -43,8 +43,9 @@ public class LoginController implements Initializable {
                         try {
                             String css = MainApp.class.getResource("css/style.css").toExternalForm();
                             FlowController.createScene("AdminMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("admin/admin_menu.fxml"))));
+                            FlowController.createScene("DriverMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("driver/driver_menu.fxml"))));
                             FlowController.setStage("MainStage");
-                            FlowController.setScene("AdminMenu");
+                            FlowController.setScene("DriverMenu");
                             FlowController.getScene().getStylesheets().add(css);
                         } catch (IOException e) {
                             throw new RuntimeException(e);

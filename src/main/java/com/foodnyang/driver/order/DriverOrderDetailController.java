@@ -26,6 +26,16 @@ public class DriverOrderDetailController implements Initializable {
         restoran.setText(orderObj.getRestoran());
     }
 
+    public void onTolakPesananClicked() throws IOException {
+        FlowController.createStage("driverOrderRejectConfirm", new Stage());
+        FlowController.createScene("driverOrderRejectConfirm", new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/driver_orderrejectconfirmation.fxml")).load()));
+
+        FlowController.setStage("driverOrderRejectConfirm");
+        FlowController.getStage().setTitle("Konfirmasi Pesanan");
+        FlowController.setScene("driverOrderRejectConfirm");
+        FlowController.showStage("driverOrderRejectConfirm");
+    }
+
     public void onSelesaikanPesananClicked() throws IOException {
         FlowController.createStage("driverOrderCompleteConfirm", new Stage());
         FlowController.createScene("driverOrderCompleteConfirm", new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/driver_ordercompleteconfirmation.fxml")).load()));

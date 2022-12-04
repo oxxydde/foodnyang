@@ -2,6 +2,8 @@ package com.foodnyang.driver.order;
 
 import com.foodnyang.FlowController;
 import com.foodnyang.MainApp;
+import com.foodnyang.database.driver.order.DriverOrderListModel;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,9 +38,14 @@ public class DriverOrderListController implements Initializable {
         harga.setCellValueFactory(new PropertyValueFactory<Order, Integer>("harga"));
 
         // Add selection listener (Ide dari James_D pada StackOverflow : https://stackoverflow.com/questions/26424769/javafx8-how-to-create-listener-for-selection-of-row-in-tableview)
-        orderTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
-            System.out.println(obs.getValue().toString());
-        });
+//        orderTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
+//            System.out.println(obs.getValue().toString());
+//        });
+
+        // Query order lists
+        DriverOrderListModel model = new DriverOrderListModel();
+        ObservableList orderList = model.getOrderList(1234, searchTxtField.getText());
+        orderTable.setItems(orderList);
     }
 
     // JavaFX Mechanics Testing Purposes
@@ -49,6 +56,10 @@ public class DriverOrderListController implements Initializable {
 
     public void onSearchTxtTyped() {
         System.out.println(searchTxtField.getText());
+        // Query order lists
+        DriverOrderListModel model = new DriverOrderListModel();
+        ObservableList orderList = model.getOrderList(1234, searchTxtField.getText());
+        orderTable.setItems(orderList);
     }
     public void onOrderDetailBtnClicked() throws IOException {
         Order selectedOrder = (Order) orderTable.getSelectionModel().selectedItemProperty().getValue();
@@ -63,12 +74,9 @@ public class DriverOrderListController implements Initializable {
             FlowController.showStage("driverOrderDetail");
         }
     }
-
-    public void onCompleteOrderClicked() {
-//        Stage completeConfirmOrderStage = new Stage();
-//        Scene completeConfirmOrderScene = new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/ordercompleteconfirmation.fxml")));
-//        completeConfirmOrderStage.setTitle("Konfirmasi Selesaikan Pesanan");
-//        completeConfirmOrderStage.setScene();
+    public void onBackBtnClicked() {
+        FlowController.setStage("MainStage");
+        FlowController.setScene("DriverMenu");
     }
 }
 

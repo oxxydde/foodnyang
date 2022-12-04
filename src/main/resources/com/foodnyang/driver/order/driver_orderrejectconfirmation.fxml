@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<DialogPane prefHeight="93.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverCompleteConfirmationController">
+<DialogPane prefHeight="93.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverRejectConfirmationController">
    <header>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Text layoutX="77.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apakah anda ingin menyelesaikan pesanan ini?" />
+            <Text layoutX="93.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apakah anda ingin menolak pesanan ini?" />
             <Button layoutX="220.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onYesClicked" prefHeight="35.0" prefWidth="49.0" text="Ya" />
             <Button layoutX="286.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#onNoClicked" prefHeight="35.0" prefWidth="49.0" text="Tidak" />
          </children>

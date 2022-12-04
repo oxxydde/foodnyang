@@ -17,4 +17,8 @@ module com.foodnyang {
     opens com.foodnyang.admin to javafx.fxml;
     exports com.foodnyang.signup;
     opens com.foodnyang.signup to javafx.fxml;
+    exports com.foodnyang.driver;
+    opens com.foodnyang.driver to javafx.fxml;
+    exports com.foodnyang.driver.order;
+    opens com.foodnyang.driver.order to javafx.fxml;
 }

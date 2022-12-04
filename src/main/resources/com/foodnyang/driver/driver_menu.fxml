@@ -18,5 +18,6 @@
          </children>
       </VBox>
       <Text layoutX="32.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halo, Dika" wrappingWidth="77.29687499999994" />
+      <Button fx:id="signOutBtn" layoutX="32.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#onSignOutBtnClicked" prefHeight="36.0" prefWidth="84.0" text="Sign Out" />
    </children>
 </AnchorPane>

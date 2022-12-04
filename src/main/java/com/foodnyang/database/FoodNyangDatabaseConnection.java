@@ -14,7 +14,7 @@ public class FoodNyangDatabaseConnection {
                 "encrypt=true;" +
                 "trustServerCertificate=true;" +
                 "loginTimeout=30;";
-        public static Connection connection () throws SQLException {
+        public static Connection connection() throws SQLException {
             return DriverManager.getConnection(connectionUrl);
         }
 }

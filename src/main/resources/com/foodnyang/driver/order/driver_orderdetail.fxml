@@ -31,7 +31,7 @@
             <Text fx:id="restoran" strokeType="OUTSIDE" strokeWidth="0.0" text="Lalapan Jay" wrappingWidth="100.13671875" />
          </children>
       </VBox>
-      <Button layoutX="135.0" layoutY="346.0" mnemonicParsing="false" text="Tolak Pesanan" />
+      <Button layoutX="135.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#onTolakPesananClicked" text="Tolak Pesanan" />
       <Button layoutX="361.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#onSelesaikanPesananClicked" text="Selesaikan Pesanan" />
    </children>
 </AnchorPane>
