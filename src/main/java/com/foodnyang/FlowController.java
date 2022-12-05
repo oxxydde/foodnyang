@@ -20,9 +20,6 @@ public class FlowController {
     public static void removeStage(String stageName) {
         stages.remove(stageName);
     }
-    public static void showStage(String stageName) {
-        stages.get(stageName).show();
-    }
     public static void setScene(String sceneName) {
         scene = scenes.get(sceneName);
         stage.setScene(scene);

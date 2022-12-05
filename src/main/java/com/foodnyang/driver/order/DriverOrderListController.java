@@ -71,7 +71,7 @@ public class DriverOrderListController implements Initializable {
             FlowController.createScene("driverOrderDetail", new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/driver_orderdetail.fxml")).load()));
             FlowController.setStage("driverOrderDetail");
             FlowController.setScene("driverOrderDetail");
-            FlowController.showStage("driverOrderDetail");
+            FlowController.getStage().show();
         }
     }
     public void onBackBtnClicked() {

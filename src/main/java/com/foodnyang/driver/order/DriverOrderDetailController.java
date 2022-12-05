@@ -33,7 +33,7 @@ public class DriverOrderDetailController implements Initializable {
         FlowController.setStage("driverOrderRejectConfirm");
         FlowController.getStage().setTitle("Konfirmasi Pesanan");
         FlowController.setScene("driverOrderRejectConfirm");
-        FlowController.showStage("driverOrderRejectConfirm");
+        FlowController.getStage().show();
     }
 
     public void onSelesaikanPesananClicked() throws IOException {
@@ -43,6 +43,6 @@ public class DriverOrderDetailController implements Initializable {
         FlowController.setStage("driverOrderCompleteConfirm");
         FlowController.getStage().setTitle("Konfirmasi Pesanan");
         FlowController.setScene("driverOrderCompleteConfirm");
-        FlowController.showStage("driverOrderCompleteConfirm");
+        FlowController.getStage().show();
     }
 }
