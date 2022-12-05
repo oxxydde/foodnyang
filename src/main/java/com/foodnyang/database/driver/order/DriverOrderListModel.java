@@ -13,7 +13,7 @@ public class DriverOrderListModel {
     public ObservableList getOrderList(int driver_id, String filter) {
         ObservableList<Order> orderList = FXCollections.observableArrayList();
         try {
-            // Here we will add driver_id condition, for development phase not included
+            // Here we will add driver_id condition, for development phase not included 
             PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
                     "SELECT p.order_id, r.nama_restaurant, ui.nama, p.subtotal_harga FROM pesanan p " +
                         "JOIN restaurant r ON p.restaurant_id=r.id " +

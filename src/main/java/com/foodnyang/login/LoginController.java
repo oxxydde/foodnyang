@@ -4,16 +4,13 @@ import com.foodnyang.database.AccountModel;
 import com.foodnyang.FlowController;
 import com.foodnyang.MainApp;
 import com.foodnyang.enums.signup.LoginStatus;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,48 +28,100 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        login_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // handle controller
-                LoginStatus result = AccountModel.loginUser(event, tf_username.getText(), tf_password.getText());
+        login_button.setOnAction(event -> {
+            // handle controller
+            LoginStatus result = AccountModel.loginUser(event, tf_username.getText(), tf_password.getText());
 
-                switch (result) {
-                    case SUCCEED -> {
-                        // change scene and send user data
+            switch (result) {
+                case SUCCEED -> {
+                    // show the window
+                    DialogPane roleSelect = new DialogPane();
+
+                    VBox optionsBox = new VBox();
+                    optionsBox.setSpacing(7);
+                    roleSelect.setPrefWidth(275);
+                    roleSelect.setPrefHeight(275);
+
+                    Button adminBtn = new Button("Admin");
+                    adminBtn.setId("adminBtn");
+                    adminBtn.setOnMouseClicked(event1 -> {
+                        FlowController.setStage("MainStage");
+                        String css = MainApp.class.getResource("css/style.css").toExternalForm();
                         try {
-                            String css = MainApp.class.getResource("css/style.css").toExternalForm();
                             FlowController.createScene("AdminMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("admin/admin_menu.fxml"))));
-                            FlowController.createScene("DriverMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("driver/driver_menu.fxml"))));
-                            FlowController.setStage("MainStage");
-                            FlowController.setScene("DriverMenu");
+                            FlowController.setScene("AdminMenu");
                             FlowController.getScene().getStylesheets().add(css);
+                            FlowController.getStageByKey("LoginRolePrompt").close();
+                            FlowController.removeStage("LoginRolePrompt");
+                            FlowController.removeScene("LoginRolePrompt");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
+                    });
+
+                    Button customerBtn = new Button("Pembeli");
+                    customerBtn.setId("customerBtn");
+                    customerBtn.setOnMouseClicked(event1 -> {
+                    });
+
+                    Button driverBtn = new Button("Driver");
+                    driverBtn.setId("driverBtn");
+                    driverBtn.setOnMouseClicked(event1 -> {
+                        try {
+                            FlowController.setStage("MainStage");
+//                                String css = MainApp.class.getResource("css/style.css").toExternalForm();
+                            FlowController.createScene("DriverMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("driver/driver_menu.fxml"))));
+                            FlowController.setScene("DriverMenu");
+//                                FlowController.getScene().getStylesheets().add(css);
+                            FlowController.getStageByKey("LoginRolePrompt").close();
+                            FlowController.removeStage("LoginRolePrompt");
+                            FlowController.removeScene("LoginRolePrompt");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+
+                    Button restaurantBtn = new Button("Restoran");
+                    restaurantBtn.setId("restaurantBtn");
+                    restaurantBtn.setOnMouseClicked(event1 -> {
+                    });
+
+                    optionsBox.getChildren().add(adminBtn);
+                    optionsBox.getChildren().add(customerBtn);
+                    optionsBox.getChildren().add(driverBtn);
+                    optionsBox.getChildren().add(restaurantBtn);
+
+                    roleSelect.setContent(optionsBox);
+
+                    if (FlowController.getStageByKey("LoginRolePrompt") == null) {
+                        FlowController.createStage("LoginRolePrompt", new Stage());
+                        FlowController.createScene("LoginRolePrompt", new Scene(roleSelect));
+                        FlowController.setStage("LoginRolePrompt");
+                        FlowController.setScene("LoginRolePrompt");
+                        FlowController.getStage().show();
+                    } else {
+                        FlowController.setStage("LoginRolePrompt");
+                        FlowController.getStage().requestFocus();
                     }
-                    case INCORRECT_CREDS -> {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Username or password does not match!");
-                        alert.show();
-                    }
+                }
+                case INCORRECT_CREDS -> {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Username or password does not match!");
+                    alert.show();
                 }
             }
         });
 
-        signup_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    FXMLLoader signup = new FXMLLoader(MainApp.class.getResource("SignUp/signup_view.fxml"));
-                    FlowController.setStage("MainStage");
-                    FlowController.createScene("SignUpScene", new Scene(signup.load()));
-                    FlowController.setScene("SignUpScene");
-                    String css = MainApp.class.getResource("css/style.css").toExternalForm();
-                    FlowController.getScene().getStylesheets().add(css);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        signup_button.setOnAction(event -> {
+            try {
+                FXMLLoader signup = new FXMLLoader(MainApp.class.getResource("SignUp/signup_view.fxml"));
+                FlowController.setStage("MainStage");
+                FlowController.createScene("SignUpScene", new Scene(signup.load()));
+                FlowController.setScene("SignUpScene");
+                String css = MainApp.class.getResource("css/style.css").toExternalForm();
+                FlowController.getScene().getStylesheets().add(css);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }

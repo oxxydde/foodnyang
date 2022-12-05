@@ -19,8 +19,11 @@ public class DriverMenuController {
 
     }
 
-    public void onSignOutBtnClicked() {
+    public void onSignOutBtnClicked() throws IOException {
+        String css = this.getClass().getResource("/com/foodnyang/css/style.css").toExternalForm();
+        FlowController.createScene("LoginScene", new Scene(FXMLLoader.load(getClass().getResource("/com/foodnyang/login/login_view.fxml"))));
         FlowController.setStage("MainStage");
         FlowController.setScene("LoginScene");
+        FlowController.getScene().getStylesheets().add(css);
     }
 }

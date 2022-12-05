@@ -39,4 +39,10 @@ public class FlowController {
     public static Stage getStage() {
         return stage;
     }
+    public static Scene getSceneByKey(String sceneName) {
+        return scenes.get(sceneName);
+    }
+    public static Stage getStageByKey(String stageName) {
+        return stages.get(stageName);
+    }
 }

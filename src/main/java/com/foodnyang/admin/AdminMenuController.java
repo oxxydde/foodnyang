@@ -1,5 +1,6 @@
 package com.foodnyang.admin;
 
+import com.foodnyang.FlowController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,11 +47,10 @@ public class AdminMenuController {
 
     public void onSignOutButtonClick(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/foodnyang/login/login_view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
         String css = this.getClass().getResource("/com/foodnyang/css/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
+        FlowController.createScene("LoginScene", new Scene(root));
+        FlowController.setStage("MainStage");
+        FlowController.setScene("LoginScene");
+        FlowController.getScene().getStylesheets().add(css);
     }
 }
