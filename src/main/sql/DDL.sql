@@ -1,7 +1,7 @@
 --USE FoodNyang GO;
 
 CREATE TABLE user_info(
-    id INT PRIMARY KEY IDENTITY (1,1),
+    id INT PRIMARY KEY IDENTITY (0,1),
     nama NVARCHAR(50) NOT NULL,
     jenis_kelamin NVARCHAR(8),
     tempat_lahir NVARCHAR(30),
@@ -60,7 +60,7 @@ CREATE TABLE mitra(
 );
 
 CREATE TABLE alamat_kirim(
-    id_alamat INT PRIMARY KEY IDENTITY(2, 1),
+    id_alamat INT PRIMARY KEY IDENTITY(2000, 1),
     id_pembeli INT NOT NULL FOREIGN KEY REFERENCES pembeli(id_pembeli),
     nama_lokasi NVARCHAR(50) NOT NULL,
     alamat NVARCHAR(255) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE alamat_kirim(
 );
 
 CREATE TABLE restaurant(
-    id_restaurant INT PRIMARY KEY IDENTITY(3,1),
+    id_restaurant INT PRIMARY KEY IDENTITY(3000,1),
     id_mitra INT NOT NULL FOREIGN KEY REFERENCES mitra(id_mitra),
     nama NVARCHAR(50) NOT NULL,
     jam_operasional TINYINT NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE pesanan(
 );
 
 CREATE TABLE menu_restaurant(
-    id_mr INT PRIMARY KEY IDENTITY(4,1),
+    id_mr INT PRIMARY KEY IDENTITY(4000,1),
     id_restaurant INT NOT NULL FOREIGN KEY REFERENCES restaurant(id_restaurant),
     nama NVARCHAR(50) NOT NULL,
     harga FLOAT NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE menu_restaurant(
 );
 
 CREATE TABLE kategori_restaurant(
-    id_kategori INT PRIMARY KEY,
+    id_kategori INT PRIMARY KEY IDENTITY(5000,1),
     nama NVARCHAR(20) NOT NULL
 );
 
