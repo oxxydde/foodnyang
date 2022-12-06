@@ -1,6 +1,6 @@
 CREATE OR ALTER PROCEDURE buatKategori
 	@id_restaurant INT,
-	@nama_kategori INT
+	@nama_kategori NVARCHAR(20)
 AS
 BEGIN SET NOCOUNT ON;
 	BEGIN TRANSACTION
@@ -30,8 +30,11 @@ BEGIN SET NOCOUNT ON;
 			ELSE 
 				BEGIN
 					-- INSERT KEDALAM TABEL TERGOLONG
-					INSERT INTO tergolong(id_restaurant, id_kategori)
-					VALUES(@id_restaurant, @similiar_id)
+					IF @similiar_id NOT IN (SELECT id_kategori FROM tergolong WHERE id_restaurant = @id_restaurant)
+						BEGIN
+							INSERT INTO tergolong(id_restaurant, id_kategori)
+							VALUES(@id_restaurant, @similiar_id)
+						END
 				END
 	
 		IF @@TRANCOUNT > 0
