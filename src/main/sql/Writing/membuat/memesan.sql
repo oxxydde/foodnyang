@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE memesan
+CREATE OR ALTER PROCEDURE memesanItem
 	@id_mr INT,
 	@id_pesanan INT,
 	@jumlah_item INT

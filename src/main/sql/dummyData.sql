@@ -16,11 +16,10 @@ VALUES (4, 'Pegawai');
 
 -- USER INFO
 EXEC daftarUser @nama = 'B', @nomor_telpon = 'h', @email = 'g', @password = 'heada';
-EXEC daftarPegawai @ID = 5, @pekerjaan = 'a', @departemen = 'g', @gaji = 123;
-EXEC daftarPembeli @id = 5;
-EXEC daftarMitra @id = 5;
-EXEC daftarDriver @id = 5, @tipe_kendaraan = 'sd', @nomor_polisi = '1234', @warna_kendaraan = 'biru';
-DELETE FROM pegawai WHERE id_pegawai = 3
+EXEC daftarPegawai @ID = 2, @pekerjaan = 'a', @departemen = 'g', @gaji = 123;
+EXEC daftarPembeli @id = 2;
+EXEC daftarMitra @id = 2;
+EXEC daftarDriver @id = 2, @tipe_kendaraan = 'sd', @nomor_polisi = '1234', @warna_kendaraan = 'biru';
 SELECT * FROM user_info
 SELECT * FROM login
 SELECT * FROM pembeli
