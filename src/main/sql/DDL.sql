@@ -31,7 +31,7 @@ CREATE TABLE login(
 CREATE TABLE pegawai(
     id_pegawai INT PRIMARY KEY FOREIGN KEY REFERENCES user_info(id),
     tanggal_perekrutan DATE NOT NULL,
-    pekerjaan NVARCHAR(20) NOT NULL,
+    pekerjaan NVARCHAR(50) NOT NULL,
     manajer INT,
     departemen NVARCHAR(20) NOT NULL,
     gaji INT NOT NULL
@@ -65,8 +65,8 @@ CREATE TABLE alamat_kirim(
     nama_lokasi NVARCHAR(50) NOT NULL,
     alamat NVARCHAR(255) NOT NULL,
     zipcode INT,
-    latitude DECIMAL(8, 6), 
-    longitude DECIMAL(9, 6),
+    latitude DECIMAL(12, 9), 
+    longitude DECIMAL(12, 9),
 );
 
 CREATE TABLE restaurant(
@@ -78,8 +78,8 @@ CREATE TABLE restaurant(
     status NVARCHAR(10) NOT NULL,
     rating TINYINT CHECK(rating BETWEEN 0 AND 5) DEFAULT 0,
     alamat NVARCHAR(255) NOT NULL,
-    latitude DECIMAL(8, 6), 
-    longitude DECIMAL(9, 6),
+    latitude DECIMAL(12, 9), 
+    longitude DECIMAL(12, 9),
 );
 
 CREATE TABLE pesanan(
@@ -91,8 +91,8 @@ CREATE TABLE pesanan(
     status NVARCHAR(10) NOT NULL DEFAULT 'Diterima',
     waktu_diterima DATETIME2,
     waktu_selsai DATETIME2,
-    total_item INT NOT NULL DEFAULT 0,
-    total_harga FLOAT NOT NULL DEFAULT 0,
+    total_item INT DEFAULT 0,
+    total_harga FLOAT DEFAULT 0,
 
 	FOREIGN KEY (id_driver) REFERENCES driver(id_driver),
 	FOREIGN KEY (id_pembeli) REFERENCES pembeli(id_pembeli),
@@ -105,8 +105,9 @@ CREATE TABLE menu_restaurant(
     id_restaurant INT NOT NULL FOREIGN KEY REFERENCES restaurant(id_restaurant),
     nama NVARCHAR(50) NOT NULL,
     harga FLOAT NOT NULL,
+    ketersediaan INT DEFAULT 0,
     deskripsi NVARCHAR(255),
-    ketersediaan INT DEFAULT 0
+	gambarMakanan NVARCHAR(2083)
 );
 
 CREATE TABLE kategori_restaurant(

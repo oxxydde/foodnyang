@@ -8,7 +8,7 @@ BEGIN SET NOCOUNT ON;
 	BEGIN TRANSACTION
 		BEGIN TRY
 
-			INSERT INTO pesanan(id_driver, id_pembeli, id_restaurant, id_alamat_kiri) 
+			INSERT INTO pesanan(id_driver, id_pembeli, id_restaurant, id_alamat_kirim) 
 			VALUES (@id_driver, @id_pembeli, @id_restaurant, @id_alamat_kirim)
 	
 		IF @@TRANCOUNT > 0
