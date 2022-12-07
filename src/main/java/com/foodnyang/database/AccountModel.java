@@ -4,10 +4,7 @@ import com.foodnyang.enums.signup.LoginStatus;
 import com.foodnyang.enums.signup.SignUpStatus;
 import javafx.event.ActionEvent;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AccountModel {
     public static SignUpStatus signUpUser(ActionEvent event, String name, String user_email, String password) {
@@ -69,44 +66,37 @@ public class AccountModel {
 
     public static LoginStatus loginUser(ActionEvent event, String user_email, String password) {
         Connection conn = null;
-        PreparedStatement preparedStatement = null;
+        CallableStatement query = null;
         ResultSet resultSet = null;
         LoginStatus status = null;
 
         try {
             conn = FoodNyangDatabaseConnection.connection();
-            preparedStatement = conn.prepareStatement("SELECT password FROM user_info WHERE user_email = ?");
-            preparedStatement.setString(1, user_email);
-            resultSet = preparedStatement.executeQuery();
+            query = FoodNyangDatabaseConnection.connection().prepareCall("{? = call dbo.loginCheck(?, ?)}");
+            query.registerOutParameter(1, Types.NVARCHAR);
+            query.setString(2, user_email);
+            query.setString(3, password);
+            query.execute();
 
-            if (!resultSet.isBeforeFirst()){
+            if (query.getString(1) == null) {
                 System.out.println("User not found in the database!");
                 status = LoginStatus.NO_ACCOUNT;
             } else {
-                while (resultSet.next()){
-                    String retrievePassword = resultSet.getString("password");
-                    if (retrievePassword.equals(password)){
+                    String retrievePassword = query.getString(1);
+                    if (retrievePassword.equals("Valid")){
                         status = LoginStatus.SUCCEED;
                     } else {
                         System.out.println("Username or password does not match!");
                         status = LoginStatus.INCORRECT_CREDS;
                     }
-                }
             }
         } catch (SQLException e){
             e.printStackTrace();
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        }
 
-            if (preparedStatement != null) {
+            if (query != null) {
                 try {
-                    preparedStatement.close();
+                    query.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -120,7 +110,6 @@ public class AccountModel {
                     e.printStackTrace();
                 }
             }
-        }
         return status;
     }
 }

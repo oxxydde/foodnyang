@@ -6,8 +6,8 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 
 public class FlowController {
-    private static HashMap<String, Stage> stages = new HashMap<>();
-    private static HashMap<String, Scene> scenes = new HashMap<>();
+    private static final HashMap<String, Stage> stages = new HashMap<>();
+    private static final HashMap<String, Scene> scenes = new HashMap<>();
 
     private static Stage stage;
     private static Scene scene;

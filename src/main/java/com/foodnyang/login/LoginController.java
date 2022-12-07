@@ -62,6 +62,18 @@ public class LoginController implements Initializable {
                     Button customerBtn = new Button("Pembeli");
                     customerBtn.setId("customerBtn");
                     customerBtn.setOnMouseClicked(event1 -> {
+                        FlowController.setStage("MainStage");
+                        String css = MainApp.class.getResource("css/style.css").toExternalForm();
+                        try {
+                            FlowController.createScene("CustomerMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("customer/customer_menu.fxml"))));
+                            FlowController.setScene("CustomerMenu");
+                            FlowController.getScene().getStylesheets().add(css);
+                            FlowController.getStageByKey("LoginRolePrompt").close();
+                            FlowController.removeStage("LoginRolePrompt");
+                            FlowController.removeScene("LoginRolePrompt");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     });
 
                     Button driverBtn = new Button("Driver");

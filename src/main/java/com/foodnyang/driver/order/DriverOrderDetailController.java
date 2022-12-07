@@ -15,15 +15,16 @@ import java.util.ResourceBundle;
 
 public class DriverOrderDetailController implements Initializable {
     @FXML
-    private Text orderID, pelanggan, restoran, harga;
+    private Text orderID, pelanggan, restoran, harga, address;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Stage stage = FlowController.getStage();
-        Order orderObj = (Order) stage.getUserData();
-        orderID.setText(Integer.toString(orderObj.getId()));
-        pelanggan.setText(orderObj.getPelanggan());
-        restoran.setText(orderObj.getRestoran());
+        OrderElement orderElementObj = (OrderElement) stage.getUserData();
+        orderID.setText(Integer.toString(orderElementObj.getId()));
+        pelanggan.setText(orderElementObj.getPelanggan());
+        restoran.setText(orderElementObj.getRestoran());
+        address.setText(orderElementObj.getAddress());
     }
 
     public void onTolakPesananClicked() throws IOException {
@@ -35,6 +36,7 @@ public class DriverOrderDetailController implements Initializable {
         FlowController.setScene("driverOrderRejectConfirm");
         FlowController.getStage().show();
     }
+
 
     public void onSelesaikanPesananClicked() throws IOException {
         FlowController.createStage("driverOrderCompleteConfirm", new Stage());

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="restoElem" prefHeight="100.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.ordering.CustomerRestaurantListController">
+   <children>
+      <Text fx:id="restoName" layoutX="108.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amazing Mie" wrappingWidth="202.19921875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="openMenuBtn" layoutX="387.0" layoutY="37.0" mnemonicParsing="false" text="Buka Menu" />
+      <Text fx:id="restoCategory" layoutX="108.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kategori Ganteng" wrappingWidth="202.19921875" />
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

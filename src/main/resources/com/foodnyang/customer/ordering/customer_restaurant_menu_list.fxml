@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="549.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.ordering.CustomerRestoMenuListController">
+   <children>
+
+      <Text layoutX="91.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Restoran" />
+      <Text fx:id="restoNameTxt" layoutX="91.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amazing Mi">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+
+      <Button layoutX="91.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="25.0" prefWidth="69.0" text="Kembali" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="91.0" layoutY="149.0" prefHeight="324.0" prefWidth="500.0">
+         <content>
+            <VBox fx:id="menuList" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="195.0" />
+               </children>
+            </VBox>
+         </content></ScrollPane>
+      <Button layoutX="288.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#onTambahMenuClicked" prefHeight="25.0" prefWidth="69.0" text="Tambah" />
+      <Button layoutX="465.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#onCheckoutOrderClicked" prefHeight="25.0" prefWidth="126.0" text="Checkout Pesanan" />
+      <Text layoutX="91.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
+      <TextField layoutX="126.0" layoutY="484.0" prefHeight="25.0" prefWidth="224.0" />
+   </children>
+</AnchorPane>

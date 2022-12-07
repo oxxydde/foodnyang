@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="menuElem" prefHeight="125.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="foodName" layoutX="108.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.19921875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="description" layoutX="108.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.19921875" />
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="price" layoutX="108.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.19921875" />
+      <Text fx:id="qtyItem" layoutX="417.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Button fx:id="decBtn" layoutX="374.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Button fx:id="incBtn" layoutX="440.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+   </children>
+</AnchorPane>

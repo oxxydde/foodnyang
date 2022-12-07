@@ -21,4 +21,11 @@ module com.foodnyang {
     opens com.foodnyang.driver to javafx.fxml;
     exports com.foodnyang.driver.order;
     opens com.foodnyang.driver.order to javafx.fxml;
+    exports com.foodnyang.customer;
+    opens com.foodnyang.customer to javafx.fxml;
+    exports com.foodnyang.customer.ordering;
+    opens com.foodnyang.customer.ordering to javafx.fxml;
+    exports com.foodnyang.customer.orderlist;
+    opens com.foodnyang.customer.orderlist to javafx.fxml;
+
 }

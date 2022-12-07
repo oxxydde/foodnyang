@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverOrderDetailController">
+<AnchorPane prefHeight="551.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverOrderDetailController">
    <children>
-      <Text layoutX="67.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail Pesanan" wrappingWidth="100.13671875" />
-      <TableView layoutX="67.0" layoutY="172.0" prefHeight="153.0" prefWidth="467.0">
+      <Text layoutX="68.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail Pesanan" wrappingWidth="100.13671875" />
+      <TableView layoutX="68.0" layoutY="218.0" prefHeight="213.0" prefWidth="467.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Item" />
           <TableColumn prefWidth="75.0" text="Qty" />
@@ -17,21 +17,23 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <VBox layoutX="67.0" layoutY="47.0" prefHeight="85.0" prefWidth="122.0" spacing="7.0">
+      <VBox layoutX="68.0" layoutY="75.0" prefHeight="85.0" prefWidth="122.0" spacing="7.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID" wrappingWidth="121.13671875" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Pelanggan " wrappingWidth="121.13671875" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restoran" wrappingWidth="100.13671875" />
+            <Text layoutX="10.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alamat" wrappingWidth="100.13671875" />
          </children>
       </VBox>
-      <VBox layoutX="189.0" layoutY="47.0" prefHeight="85.0" prefWidth="197.0" spacing="7.0">
+      <VBox layoutX="190.0" layoutY="75.0" prefHeight="85.0" prefWidth="344.0" spacing="7.0">
          <children>
-            <Text fx:id="orderID" strokeType="OUTSIDE" strokeWidth="0.0" text="123948" wrappingWidth="121.13671875" />
-            <Text fx:id="pelanggan" strokeType="OUTSIDE" strokeWidth="0.0" text="Pelanggan" wrappingWidth="121.13671875" />
-            <Text fx:id="restoran" strokeType="OUTSIDE" strokeWidth="0.0" text="Lalapan Jay" wrappingWidth="100.13671875" />
+            <Text fx:id="orderID" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.13671875" />
+            <Text fx:id="pelanggan" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.13671875" />
+            <Text fx:id="restoran" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.13671875" />
+            <Text fx:id="address" layoutX="10.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.13671875" />
          </children>
       </VBox>
-      <Button layoutX="135.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#onTolakPesananClicked" text="Tolak Pesanan" />
-      <Button layoutX="361.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#onSelesaikanPesananClicked" text="Selesaikan Pesanan" />
+      <Button layoutX="137.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#onTolakPesananClicked" text="Tolak Pesanan" />
+      <Button layoutX="363.0" layoutY="472.0" mnemonicParsing="false" onMouseClicked="#onSelesaikanPesananClicked" text="Selesaikan Pesanan" />
    </children>
 </AnchorPane>
