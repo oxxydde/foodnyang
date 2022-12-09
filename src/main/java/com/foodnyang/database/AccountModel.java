@@ -5,6 +5,7 @@ import com.foodnyang.enums.signup.SignUpStatus;
 import com.foodnyang.login.AccountInfo;
 import javafx.event.ActionEvent;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 
 public class AccountModel {
@@ -132,5 +133,73 @@ public class AccountModel {
             );
         }
         return info;
+    }
+
+    public static boolean isAdmin(int userId) {
+        try {
+            PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
+                    "SELECT * FROM pegawai WHERE id_pegawai=?"
+            );
+            query.setInt(1, userId);
+            ResultSet result = query.executeQuery();
+            boolean statement = result.isBeforeFirst();
+            if (query != null) query.close();
+            if (result != null) result.close();
+            return statement;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean isDriver(int userId) {
+        try {
+            PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
+                    "SELECT * FROM driver WHERE id_driver=?"
+            );
+            query.setInt(1, userId);
+            ResultSet result = query.executeQuery();
+            boolean statement = result.isBeforeFirst();
+            if (query != null) query.close();
+            if (result != null) result.close();
+            return statement;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean isRestaurant(int userId) {
+        try {
+            PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
+                    "SELECT * FROM mitra WHERE id_mitra=?"
+            );
+            query.setInt(1, userId);
+            ResultSet result = query.executeQuery();
+            boolean statement = result.isBeforeFirst();
+            if (query != null) query.close();
+            if (result != null) result.close();
+            return statement;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean isPembeli(int userId) {
+        try {
+            PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
+                    "SELECT * FROM pembeli WHERE id_pembeli=?"
+            );
+            query.setInt(1, userId);
+            ResultSet result = query.executeQuery();
+            boolean statement = result.isBeforeFirst();
+            if (query != null) query.close();
+            if (result != null) result.close();
+            return statement;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

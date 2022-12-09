@@ -107,10 +107,10 @@ public class LoginController implements Initializable {
                     restaurantBtn.setOnMouseClicked(event1 -> {
                     });
 
-                    optionsBox.getChildren().add(adminBtn);
-                    optionsBox.getChildren().add(customerBtn);
-                    optionsBox.getChildren().add(driverBtn);
-                    optionsBox.getChildren().add(restaurantBtn);
+                    if (AccountModel.isAdmin(((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getId())) optionsBox.getChildren().add(adminBtn);
+                    if (AccountModel.isPembeli(((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getId())) optionsBox.getChildren().add(customerBtn);
+                    if (AccountModel.isDriver(((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getId())) optionsBox.getChildren().add(driverBtn);
+                    if (AccountModel.isRestaurant(((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getId())) optionsBox.getChildren().add(restaurantBtn);
 
                     roleSelect.setContent(optionsBox);
 
