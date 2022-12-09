@@ -6,6 +6,11 @@
 
 <AnchorPane prefHeight="488.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.orderlist.CustomerOrderListController">
    <children>
+      <Text layoutX="264.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Pesanan Anda">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
 
       <Button fx:id="viewOrderBtn" layoutX="509.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onOrderDetailBtnClicked" prefHeight="38.0" prefWidth="111.0" text="Lihat Pesanan" />
       <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="410.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="390.0" />

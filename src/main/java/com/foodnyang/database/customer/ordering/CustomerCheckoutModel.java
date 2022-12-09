@@ -21,9 +21,15 @@ public class CustomerCheckoutModel {
         while (result.next()) {
             addresses.add(new AddressElement(
                     result.getInt("id_alamat"),
-                    result.getString("nama_lokasi")
+                    result.getString("nama_lokasi"),
+                    result.getString("alamat"),
+                    result.getString("zipcode"),
+                    result.getDouble("latitude"),
+                    result.getDouble("longitude")
             ));
         }
+        if (query != null) query.close();
+        if (result != null) result.close();
         return addresses;
     }
 }

@@ -6,9 +6,20 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.CustomerMenuController">
    <children>
-      <Button layoutX="215.0" layoutY="135.0" mnemonicParsing="false" onAction="#onPesanMakananClicked" prefHeight="48.0" prefWidth="170.0" text="Pesan Makanan" />
-      <Button layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#onOrderListClicked" prefHeight="48.0" prefWidth="170.0" text="Order List" />
-      <Text fx:id="greetTxt" layoutX="27.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
-      <Button fx:id="signOutBtn" layoutX="27.0" layoutY="99.0" mnemonicParsing="false" onAction="#onSignOutBtnClicked" onMouseClicked="#onSignOutBtnClicked" prefHeight="36.0" prefWidth="84.0" text="Sign Out" />
+      <Button layoutX="215.0" layoutY="153.0" mnemonicParsing="false" onAction="#onPesanMakananClicked" prefHeight="48.0" prefWidth="170.0" text="Pesan Makanan" />
+      <Button layoutX="215.0" layoutY="228.0" mnemonicParsing="false" onMouseClicked="#onOrderListClicked" prefHeight="48.0" prefWidth="170.0" text="Order List" />
+      <Text fx:id="greetTxt" layoutX="25.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="signOutBtn" layoutX="25.0" layoutY="168.0" mnemonicParsing="false" onAction="#onSignOutBtnClicked" onMouseClicked="#onSignOutBtnClicked" prefHeight="36.0" prefWidth="84.0" text="Sign Out" />
+      <Text layoutX="245.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodNyang">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="196.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELAMAT DATANG DI" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="editProfileBtn" layoutX="25.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#onEditProfileClicked" prefHeight="36.0" prefWidth="84.0" text="Edit Profil" />
    </children>
 </AnchorPane>

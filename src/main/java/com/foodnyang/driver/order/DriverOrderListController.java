@@ -146,14 +146,20 @@ public class DriverOrderListController implements Initializable {
     public void onOrderDetailBtnClicked() throws IOException {
         DriverOrderElement selectedDriverOrderElement = (DriverOrderElement) orderTable.getSelectionModel().selectedItemProperty().getValue();
         if (selectedDriverOrderElement != null) {
-            FlowController.createStage("driverOrderDetail", new Stage());
-            FlowController.setStage("driverOrderDetail");
-            FlowController.getStage().setUserData(selectedDriverOrderElement);
+            if (FlowController.getStageByKey("driverOrderDetail") == null) {
+                FlowController.createStage("driverOrderDetail", new Stage());
+                FlowController.setStage("driverOrderDetail");
+            }
             FlowController.getStage().setTitle("Order detail #" + selectedDriverOrderElement.getId());
+            FlowController.getStage().setUserData(selectedDriverOrderElement);
             FlowController.createScene("driverOrderDetail", new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/driver_orderdetail.fxml")).load()));
             FlowController.setStage("driverOrderDetail");
             FlowController.setScene("driverOrderDetail");
             FlowController.getStage().show();
+        } else {
+            Alert failedAlert = new Alert(Alert.AlertType.ERROR);
+            failedAlert.setContentText("Anda tidak memilih pesanan yang akan ditampilkan.");
+            failedAlert.show();
         }
     }
     public void onBackBtnClicked() {

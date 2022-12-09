@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.profile.CustomerEditProfileController">
+   <children>
+      <Button layoutX="63.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="25.0" prefWidth="69.0" text="Kembali" />
+      <TabPane layoutX="63.0" layoutY="80.0" prefHeight="459.0" prefWidth="760.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Info Akun">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="28.0" layoutY="77.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama" />
+                              <TextField fx:id="nameTxtField" prefHeight="25.0" prefWidth="208.0" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="28.0" layoutY="146.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                              <TextField fx:id="emailTxtField" prefHeight="25.0" prefWidth="208.0" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="28.0" layoutY="217.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Kelamin" />
+                              <TextField fx:id="genderTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="28.0" layoutY="294.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nomor Telepon" />
+                              <TextField fx:id="noTelpTextField" prefHeight="25.0" prefWidth="208.0" />
+                           </children>
+                        </VBox>
+                        <Button layoutX="515.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#onUpdateProfileClicked" prefHeight="75.0" prefWidth="135.0" text="UPDATE PROFIL ANDA" textAlignment="CENTER" wrapText="true" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Alamat Anda">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="addressTable" prefHeight="226.0" prefWidth="760.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Nama Lokasi" />
+                            <TableColumn prefWidth="75.0" text="Alamat" />
+                              <TableColumn prefWidth="75.0" text="Kode Pos" />
+                              <TableColumn prefWidth="75.0" text="Latitude" />
+                              <TableColumn prefWidth="75.0" text="Longitude" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <VBox layoutX="26.0" layoutY="239.0" prefHeight="56.0" prefWidth="207.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Lokasi" />
+                              <TextField fx:id="namaLocTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="26.0" layoutY="295.0" prefHeight="56.0" prefWidth="207.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alamat" />
+                              <TextField fx:id="addressTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="26.0" layoutY="351.0" prefHeight="56.0" prefWidth="207.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Pos" />
+                              <TextField fx:id="zipcodeTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="308.0" layoutY="239.0" prefHeight="56.0" prefWidth="207.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Latitude" />
+                              <TextField fx:id="latTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="308.0" layoutY="351.0" prefHeight="56.0" prefWidth="207.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Longitude" />
+                              <TextField fx:id="longTxtField" />
+                           </children>
+                        </VBox>
+                        <Button layoutX="627.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#onTambahClicked" prefWidth="71.0" text="Tambah" />
+                        <Button layoutX="627.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#onEditClicked" prefWidth="71.0" text="Ubah" />
+                        <Button layoutX="627.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#onHapusClicked" prefHeight="25.0" prefWidth="71.0" text="Hapus" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Password">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="38.0" layoutY="111.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password Baru" />
+                              <PasswordField fx:id="newPwdTxtField" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="38.0" layoutY="185.0" prefHeight="59.0" prefWidth="208.0" spacing="4.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Konfirmasi Password Baru" />
+                              <PasswordField fx:id="confirmNewPwdTxtField" />
+                           </children>
+                        </VBox>
+                        <Button layoutX="498.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#onPwdUpdateClicked" prefHeight="75.0" prefWidth="135.0" text="UPDATE PASSWORD" textAlignment="CENTER" wrapText="true" />
+                     </children></AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text layoutX="369.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profil Anda">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

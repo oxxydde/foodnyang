@@ -33,6 +33,8 @@ public class CustomerRestaurantListModel {
                 ));
             }
         }
+        if (query != null) query.close();
+        if (result != null) result.close();
         return restos;
     }
 }

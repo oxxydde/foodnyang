@@ -11,7 +11,14 @@ import java.sql.SQLException;
 
 public class DriverOrderListModel {
 
-    public ObservableList getOrderList(int driver_id, int orderIdFilter, String restoNameFilter, String custNameFilter, String addressFilter, String status) {
+    public ObservableList getOrderList(
+            int driver_id,
+            int orderIdFilter,
+            String restoNameFilter,
+            String custNameFilter,
+            String addressFilter,
+            String status
+    ) {
         ObservableList<DriverOrderElement> driverOrderElementList = FXCollections.observableArrayList();
         try {
             // Here we will add driver_id condition, for development phase not included 
@@ -42,11 +49,13 @@ public class DriverOrderListModel {
                             orders.getString("namaPembeli"),
                             orders.getString("namaResto"),
                             orders.getString("alamatTujuan"),
-                            orders.getInt("totalHarga"),
+                            orders.getInt("totalHarga") + 9000,
                             statusQuery
                     ));
                 }
             }
+            if (query != null) query.close();
+            if (orders != null) orders.close();
         }
         catch (SQLException e) {
             e.printStackTrace();

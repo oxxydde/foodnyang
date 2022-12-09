@@ -32,6 +32,11 @@ public class CustomerMenuController implements Initializable {
             FlowController.getStageByKey("RestaurantList").requestFocus();
         }
     }
+    public void onOrderListClicked() throws IOException {
+        FlowController.createScene("CustomerOrderList", new Scene(FXMLLoader.load(MainApp.class.getResource("customer/order_list/customer_orderlist.fxml"))));
+        FlowController.setStage("MainStage");
+        FlowController.setScene("CustomerOrderList");
+    }
     public void onSignOutBtnClicked() throws IOException {
         String css = this.getClass().getResource("/com/foodnyang/css/style.css").toExternalForm();
         FlowController.createScene("LoginScene", new Scene(FXMLLoader.load(getClass().getResource("/com/foodnyang/login/login_view.fxml"))));
@@ -40,9 +45,9 @@ public class CustomerMenuController implements Initializable {
         FlowController.getScene().getStylesheets().add(css);
         FlowController.removeScene("CustomerMenu");
     }
-    public void onOrderListClicked() throws IOException {
-        FlowController.createScene("CustomerOrderList", new Scene(FXMLLoader.load(MainApp.class.getResource("customer/order_list/customer_orderlist.fxml"))));
+    public void onEditProfileClicked() throws IOException {
+        FlowController.createScene("EditProfile", new Scene(FXMLLoader.load(MainApp.class.getResource("customer/profile/customer_edit_profile.fxml"))));
         FlowController.setStage("MainStage");
-        FlowController.setScene("CustomerOrderList");
+        FlowController.setScene("EditProfile");
     }
 }

@@ -29,6 +29,8 @@ public class CustomerRestoMenuListModel {
                     result.getString("gambarMakanan")
             ));
         }
+        if (query != null) query.close();
+        if (result != null) result.close();
         return menus;
     }
 }

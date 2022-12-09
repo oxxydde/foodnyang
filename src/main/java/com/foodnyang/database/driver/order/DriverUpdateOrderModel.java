@@ -2,13 +2,14 @@ package com.foodnyang.database.driver.order;
 
 import com.foodnyang.FlowController;
 import com.foodnyang.database.FoodNyangDatabaseConnection;
+import com.foodnyang.enums.data.DataUpdate;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
 public class DriverUpdateOrderModel {
-    public static String updateStatusPesanan(int order_id, String status) throws SQLException {
+    public static DataUpdate updateStatusPesanan(int order_id, String status) throws SQLException {
         CallableStatement query = FoodNyangDatabaseConnection.connection().prepareCall(
                 "{ call dbo.updateStatusPesanan(?, ?, ?) }"
         );
@@ -16,6 +17,16 @@ public class DriverUpdateOrderModel {
         query.setString(2, status);
         query.registerOutParameter(3, Types.NVARCHAR);
         int rowAffected = query.executeUpdate();
-        return query.getString(3);
+
+        DataUpdate stat = null;
+
+        if (query.getString(3).equals("Success")) {
+            stat = DataUpdate.UPDATE_SUCCEED;
+        } else {
+            stat = DataUpdate.UPDATE_FAILED;
+        }
+
+        if (query != null) query.close();
+        return stat;
     }
 }

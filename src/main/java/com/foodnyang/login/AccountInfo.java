@@ -1,14 +1,30 @@
 package com.foodnyang.login;
 
 public class AccountInfo {
-    private final int id;
-    private final String nama, jenisKelamin, nomorTelp, email;
+    private int id;
+    private String nama, jenisKelamin, nomorTelp, email;
 
     public AccountInfo(int id, String nama, String jenisKelamin, String nomorTelp, String email) {
         this.id = id;
         this.nama = nama;
         this.jenisKelamin = jenisKelamin;
         this.nomorTelp = nomorTelp;
+        this.email = email;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public void setNomorTelp(String nomorTelp) {
+        this.nomorTelp = nomorTelp;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -31,4 +47,5 @@ public class AccountInfo {
     public String getEmail() {
         return email;
     }
+
 }

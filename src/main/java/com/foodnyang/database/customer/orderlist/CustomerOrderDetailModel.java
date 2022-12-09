@@ -1,4 +1,4 @@
-package com.foodnyang.database.driver.order;
+package com.foodnyang.database.customer.orderlist;
 
 import com.foodnyang.database.FoodNyangDatabaseConnection;
 import com.foodnyang.driver.order.FoodOrderItems;
@@ -9,8 +9,8 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DriverOrderDetailModel {
-    public ObservableList getOrderDetailById(int orderId) throws SQLException {
+public class CustomerOrderDetailModel {
+    public static ObservableList getOrderDetailById(int orderId) throws SQLException {
         CallableStatement query = FoodNyangDatabaseConnection.connection().prepareCall(
                 "{ call dbo.getOrderDetail(?) }"
         );

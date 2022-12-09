@@ -13,6 +13,7 @@ public class FoodMenuElement {
         this.qty = 0;
         this.stok = stok;
         this.urlImage = urlImage;
+        this.totalHarga = 0;
     }
 
     public int getId() {
