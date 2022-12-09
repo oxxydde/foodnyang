@@ -2,12 +2,25 @@ package com.foodnyang.driver;
 
 import com.foodnyang.FlowController;
 import com.foodnyang.MainApp;
+import com.foodnyang.login.AccountInfo;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DriverMenuController {
+public class DriverMenuController implements Initializable {
+    @FXML
+    private Text greetTxt;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        greetTxt.setText("Halo, " + ((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getNama().split(" ")[0]);
+    }
     public void onPesananAktifClicked() throws IOException {
         System.out.println("Go to pesanan aktif");
         FXMLLoader orderAktifScene = new FXMLLoader(MainApp.class.getResource("driver/order/driver_orderlist.fxml"));
@@ -27,4 +40,5 @@ public class DriverMenuController {
         FlowController.getScene().getStylesheets().add(css);
         FlowController.removeScene("DriverMenu");
     }
+
 }

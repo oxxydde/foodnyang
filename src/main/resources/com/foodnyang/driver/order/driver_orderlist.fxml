@@ -4,15 +4,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="521.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverOrderListController">
+<AnchorPane prefHeight="488.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.driver.order.DriverOrderListController">
    <children>
 
-      <Button fx:id="viewOrderBtn" layoutX="689.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#onOrderDetailBtnClicked" prefHeight="38.0" prefWidth="111.0" text="Lihat Pesanan" />
-      <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="379.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="536.0" />
-      <Text layoutX="52.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
-      <Button layoutX="275.0" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#onAddBtnClicked" text="Tambah" />
-      <Button fx:id="backBtn" layoutX="52.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="27.0" prefWidth="111.0" text="Kembali" />
-      <TabPane fx:id="statusTab" layoutX="52.0" layoutY="63.0" prefHeight="284.0" prefWidth="568.0" tabClosingPolicy="UNAVAILABLE">
+      <Button fx:id="viewOrderBtn" layoutX="509.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onOrderDetailBtnClicked" prefHeight="38.0" prefWidth="111.0" text="Lihat Pesanan" />
+      <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="410.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="390.0" />
+      <Text layoutX="52.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
+      <Button fx:id="backBtn" layoutX="52.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="27.0" prefWidth="111.0" text="Kembali" />
+      <TabPane fx:id="statusTab" layoutX="52.0" layoutY="94.0" prefHeight="284.0" prefWidth="568.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Aktif">
               <content>

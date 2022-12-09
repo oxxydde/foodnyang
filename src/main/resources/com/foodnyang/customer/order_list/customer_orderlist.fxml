@@ -4,37 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="591.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.orderlist.CustomerOrderListController">
-    <children>
-        <TableView fx:id="orderTable" layoutX="52.0" layoutY="67.0" prefHeight="200.0" prefWidth="498.0">
-            <columns>
-                <TableColumn fx:id="id" prefWidth="103.0" text="Order ID" />
-                <TableColumn fx:id="pelanggan" prefWidth="103.0" text="Pelanggan" />
-                <TableColumn fx:id="restoran" prefWidth="103.0" text="Restoran" />
-                <TableColumn fx:id="harga" prefWidth="103.0" text="Harga" />
-            </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-        </TableView>
-        <Button fx:id="viewOrderBtn" layoutX="400.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#onOrderDetailBtnClicked" prefHeight="38.0" prefWidth="111.0" text="Lihat Pesanan" />
-        <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="287.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="216.0" />
-        <Text layoutX="52.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
-        <Button layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#onAddBtnClicked" text="Tambah" />
-        <Button fx:id="backBtn" layoutX="52.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="27.0" prefWidth="111.0" text="Kembali" />
-      <TabPane layoutX="63.0" layoutY="365.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+<AnchorPane prefHeight="488.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.orderlist.CustomerOrderListController">
+   <children>
+
+      <Button fx:id="viewOrderBtn" layoutX="509.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#onOrderDetailBtnClicked" prefHeight="38.0" prefWidth="111.0" text="Lihat Pesanan" />
+      <TextField fx:id="searchTxtField" layoutX="85.0" layoutY="410.0" onKeyTyped="#onSearchTxtTyped" prefHeight="31.0" prefWidth="390.0" />
+      <Text layoutX="52.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cari" />
+      <Button fx:id="backBtn" layoutX="52.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="27.0" prefWidth="111.0" text="Kembali" />
+      <TabPane fx:id="statusTab" layoutX="52.0" layoutY="94.0" prefHeight="284.0" prefWidth="568.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
+          <Tab text="Aktif">
+              <content>
+              </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
+          <Tab text="Selesai">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
             </content>
           </Tab>
         </tabs>
       </TabPane>
-    </children>
+   </children>
 </AnchorPane>

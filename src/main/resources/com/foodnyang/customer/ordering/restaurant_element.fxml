@@ -5,15 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="restoElem" prefHeight="100.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.customer.ordering.CustomerRestaurantListController">
+<AnchorPane fx:id="restoElem" prefHeight="115.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fx:id="restoName" layoutX="108.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amazing Mie" wrappingWidth="202.19921875">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
-      <Button fx:id="openMenuBtn" layoutX="387.0" layoutY="37.0" mnemonicParsing="false" text="Buka Menu" />
-      <Text fx:id="restoCategory" layoutX="108.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kategori Ganteng" wrappingWidth="202.19921875" />
-      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox alignment="CENTER_LEFT" layoutX="117.0" prefHeight="115.0" prefWidth="203.0" spacing="5.0">
+         <children>
+            <Text fx:id="restoName" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.19921875">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="restoType" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="202.19921875" />
+            <Text fx:id="restoRating" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </VBox>
+      <Button fx:id="openMenuBtn" layoutX="389.0" layoutY="45.0" mnemonicParsing="false" text="Buka Menu" />
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="26.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

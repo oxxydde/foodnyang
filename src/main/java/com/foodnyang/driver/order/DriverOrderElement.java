@@ -1,6 +1,6 @@
 package com.foodnyang.driver.order;
 
-public class OrderElement {
+public class DriverOrderElement {
     private final Integer id;
     private final Integer harga;
     private final String pelanggan;
@@ -9,7 +9,7 @@ public class OrderElement {
 
     private final String status;
 
-    public OrderElement(int id, String pelanggan, String restoran, String address, int harga, String status) {
+    public DriverOrderElement(int id, String pelanggan, String restoran, String address, int harga, String status) {
         this.id = id;
         this.pelanggan = pelanggan;
         this.restoran = restoran;

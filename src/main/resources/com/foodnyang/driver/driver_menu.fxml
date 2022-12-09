@@ -17,7 +17,7 @@
             <Button fx:id="onKeuanganClicked" layoutX="81.0" layoutY="85.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="124.0" text="KEUANGAN" />
          </children>
       </VBox>
-      <Text layoutX="32.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halo, Dika" wrappingWidth="77.29687499999994" />
+      <Text fx:id="greetTxt" layoutX="32.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="124.0" />
       <Button fx:id="signOutBtn" layoutX="32.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#onSignOutBtnClicked" prefHeight="36.0" prefWidth="84.0" text="Sign Out" />
    </children>
 </AnchorPane>

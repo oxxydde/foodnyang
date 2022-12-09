@@ -8,7 +8,7 @@
    <children>
       <Button layoutX="215.0" layoutY="135.0" mnemonicParsing="false" onAction="#onPesanMakananClicked" prefHeight="48.0" prefWidth="170.0" text="Pesan Makanan" />
       <Button layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#onOrderListClicked" prefHeight="48.0" prefWidth="170.0" text="Order List" />
-      <Text layoutX="42.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Halo, Dika" />
+      <Text fx:id="greetTxt" layoutX="27.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
       <Button fx:id="signOutBtn" layoutX="27.0" layoutY="99.0" mnemonicParsing="false" onAction="#onSignOutBtnClicked" onMouseClicked="#onSignOutBtnClicked" prefHeight="36.0" prefWidth="84.0" text="Sign Out" />
    </children>
 </AnchorPane>

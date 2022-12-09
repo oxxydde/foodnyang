@@ -3,11 +3,11 @@ package com.foodnyang.driver.order;
 import com.foodnyang.FlowController;
 import com.foodnyang.MainApp;
 import com.foodnyang.database.driver.order.DriverOrderListModel;
+import com.foodnyang.login.AccountInfo;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -70,7 +70,14 @@ public class DriverOrderListController implements Initializable {
                 } catch (NumberFormatException e) {
                     orderIdInput = 0;
                 }
-                ObservableList orderList = this.getOrderList(17, orderIdInput, searchTxtField.getText(), searchTxtField.getText(), searchTxtField.getText(), "Aktif");
+                ObservableList orderList = this.getOrderList(
+                        ( (AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData() ).getId(),
+                        orderIdInput,
+                        searchTxtField.getText(),
+                        searchTxtField.getText(),
+                        searchTxtField.getText(),
+                        "Aktif"
+                );
                 orderTable.setItems(orderList);
                 statusTab.getTabs().get(0).setContent(orderTable);
             }
@@ -82,16 +89,18 @@ public class DriverOrderListController implements Initializable {
                 } catch (NumberFormatException e) {
                     orderIdInput = 0;
                 }
-                ObservableList orderList = this.getOrderList(17, orderIdInput, searchTxtField.getText(), searchTxtField.getText(), searchTxtField.getText(), "Selesai");
+                ObservableList orderList = this.getOrderList(
+                        ( (AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData() ).getId(),
+                        orderIdInput,
+                        searchTxtField.getText(),
+                        searchTxtField.getText(),
+                        searchTxtField.getText(),
+                        "Selesai"
+                );
                 orderTable.setItems(orderList);
                 statusTab.getTabs().get(1).setContent(orderTable);
             }
         });
-
-        // Add selection listener (Ide dari James_D pada StackOverflow : https://stackoverflow.com/questions/26424769/javafx8-how-to-create-listener-for-selection-of-row-in-tableview)
-//        orderTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
-//            System.out.println(obs.getValue().toString());
-//        });
 
         // Query order lists
         int orderIdInput = -1;
@@ -100,17 +109,18 @@ public class DriverOrderListController implements Initializable {
         } catch (NumberFormatException e) {
             orderIdInput = 0;
         }
-        ObservableList orderList = this.getOrderList(17, orderIdInput, searchTxtField.getText(), searchTxtField.getText(), searchTxtField.getText(), "Aktif");
+        ObservableList orderList = this.getOrderList(
+                ( (AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData() ).getId(),
+                orderIdInput,
+                searchTxtField.getText(),
+                searchTxtField.getText(),
+                searchTxtField.getText(),
+                "Aktif"
+        );
         orderTable.setItems(orderList);
 
         // set aktif
         statusTab.getTabs().get(0).setContent(orderTable);
-    }
-
-    // JavaFX Mechanics Testing Purposes
-    public void onAddBtnClicked() {
-//        orderTable.getItems().add(new OrderElement(1234, "Ananda", "Lalapan Ja'i", "Jl. Anggrek", 12000));
-//        System.out.println(orderTable.getItems());
     }
 
     public void onSearchTxtTyped() {
@@ -124,7 +134,7 @@ public class DriverOrderListController implements Initializable {
         }
         DriverOrderListModel model = new DriverOrderListModel();
         ObservableList orderList = model.getOrderList(
-                15,
+                ( (AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData() ).getId(),
                 orderIdInput,
                 searchTxtField.getText(),
                 searchTxtField.getText(),
@@ -134,12 +144,12 @@ public class DriverOrderListController implements Initializable {
         orderTable.setItems(orderList);
     }
     public void onOrderDetailBtnClicked() throws IOException {
-        OrderElement selectedOrderElement = (OrderElement) orderTable.getSelectionModel().selectedItemProperty().getValue();
-        if (selectedOrderElement != null) {
+        DriverOrderElement selectedDriverOrderElement = (DriverOrderElement) orderTable.getSelectionModel().selectedItemProperty().getValue();
+        if (selectedDriverOrderElement != null) {
             FlowController.createStage("driverOrderDetail", new Stage());
             FlowController.setStage("driverOrderDetail");
-            FlowController.getStage().setUserData(selectedOrderElement);
-            FlowController.getStage().setTitle("Order detail");
+            FlowController.getStage().setUserData(selectedDriverOrderElement);
+            FlowController.getStage().setTitle("Order detail #" + selectedDriverOrderElement.getId());
             FlowController.createScene("driverOrderDetail", new Scene(new FXMLLoader(MainApp.class.getResource("driver/order/driver_orderdetail.fxml")).load()));
             FlowController.setStage("driverOrderDetail");
             FlowController.setScene("driverOrderDetail");

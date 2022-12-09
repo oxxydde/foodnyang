@@ -8,8 +8,8 @@
     <children>
         <Button layoutX="91.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="25.0" prefWidth="69.0" text="Kembali" />
       <Text layoutX="91.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alamat" />
-      <ChoiceBox fx:id="addressSelector" layoutX="148.0" layoutY="166.0" prefHeight="25.0" prefWidth="318.0" />
-      <TableView layoutX="91.0" layoutY="226.0" prefHeight="261.0" prefWidth="622.0">
+      <ComboBox fx:id="addressSelector" layoutX="148.0" layoutY="166.0" prefHeight="25.0" prefWidth="318.0" />
+      <TableView fx:id="foodTable" layoutX="91.0" layoutY="226.0" prefHeight="261.0" prefWidth="622.0">
         <columns>
           <TableColumn prefWidth="162.0" text="Nama Makanan" />
           <TableColumn prefWidth="148.0" text="Harga/item" />
@@ -22,7 +22,7 @@
       </TableView>
       <Text layoutX="487.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grand Total :" />
       <Text layoutX="91.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Restoran" />
-      <Text fx:id="restoNameTxt" layoutX="91.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amazing Mi">
+      <Text fx:id="restoNameTxt" layoutX="91.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -38,6 +38,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="566.0" layoutY="574.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="147.0" text="CHECKOUT SEKARANG" />
+      <Button layoutX="566.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#onCheckoutNowClicked" prefHeight="36.0" prefWidth="147.0" text="CHECKOUT SEKARANG" />
     </children>
 </AnchorPane>

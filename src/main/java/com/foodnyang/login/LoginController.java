@@ -10,10 +10,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -34,6 +36,12 @@ public class LoginController implements Initializable {
 
             switch (result) {
                 case SUCCEED -> {
+                    FlowController.createScene("AccountInfo", new Scene(new Label()));
+                    try {
+                        FlowController.getSceneByKey("AccountInfo").setUserData(AccountModel.getUserInfo(tf_username.getText()));
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     // show the window
                     DialogPane roleSelect = new DialogPane();
 
@@ -83,6 +91,7 @@ public class LoginController implements Initializable {
                             FlowController.setStage("MainStage");
 //                                String css = MainApp.class.getResource("css/style.css").toExternalForm();
                             FlowController.createScene("DriverMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("driver/driver_menu.fxml"))));
+
                             FlowController.setScene("DriverMenu");
 //                                FlowController.getScene().getStylesheets().add(css);
                             FlowController.getStageByKey("LoginRolePrompt").close();

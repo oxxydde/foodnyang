@@ -27,5 +27,4 @@ module com.foodnyang {
     opens com.foodnyang.customer.ordering to javafx.fxml;
     exports com.foodnyang.customer.orderlist;
     opens com.foodnyang.customer.orderlist to javafx.fxml;
-
 }

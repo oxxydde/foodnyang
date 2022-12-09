@@ -1,7 +1,7 @@
 package com.foodnyang.database.driver.order;
 
 import com.foodnyang.database.FoodNyangDatabaseConnection;
-import com.foodnyang.driver.order.OrderElement;
+import com.foodnyang.driver.order.DriverOrderElement;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class DriverOrderListModel {
 
     public ObservableList getOrderList(int driver_id, int orderIdFilter, String restoNameFilter, String custNameFilter, String addressFilter, String status) {
-        ObservableList<OrderElement> orderElementList = FXCollections.observableArrayList();
+        ObservableList<DriverOrderElement> driverOrderElementList = FXCollections.observableArrayList();
         try {
             // Here we will add driver_id condition, for development phase not included 
             CallableStatement query = FoodNyangDatabaseConnection.connection().prepareCall("{ call listOrderDriver(?, ?, ?, ?, ?) }");
@@ -37,7 +37,7 @@ public class DriverOrderListModel {
                     }
                 }
                 if (insert) {
-                    orderElementList.add(new OrderElement(
+                    driverOrderElementList.add(new DriverOrderElement(
                             orders.getInt("id_pesanan"),
                             orders.getString("namaPembeli"),
                             orders.getString("namaResto"),
@@ -51,6 +51,6 @@ public class DriverOrderListModel {
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return orderElementList;
+        return driverOrderElementList;
     }
 }

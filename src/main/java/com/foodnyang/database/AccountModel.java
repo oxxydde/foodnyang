@@ -2,6 +2,7 @@ package com.foodnyang.database;
 
 import com.foodnyang.enums.signup.LoginStatus;
 import com.foodnyang.enums.signup.SignUpStatus;
+import com.foodnyang.login.AccountInfo;
 import javafx.event.ActionEvent;
 
 import java.sql.*;
@@ -111,5 +112,25 @@ public class AccountModel {
                 }
             }
         return status;
+    }
+
+    public static AccountInfo getUserInfo(String username) throws SQLException {
+        PreparedStatement query = FoodNyangDatabaseConnection.connection().prepareStatement(
+                "SELECT * FROM user_info WHERE email=?"
+        );
+        query.setString(1, username);
+        ResultSet result = query.executeQuery();
+        AccountInfo info = null;
+
+        while (result.next()) {
+            info = new AccountInfo(
+                    result.getInt("id"),
+                    result.getString("nama"),
+                    result.getString("jenis_kelamin"),
+                    result.getString("nomor_telpon"),
+                    result.getString("email")
+            );
+        }
+        return info;
     }
 }
