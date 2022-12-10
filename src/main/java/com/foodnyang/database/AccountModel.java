@@ -5,12 +5,11 @@ import com.foodnyang.enums.signup.SignUpStatus;
 import com.foodnyang.login.AccountInfo;
 import javafx.event.ActionEvent;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 
 public class AccountModel {
-    public static SignUpStatus signUpUser(ActionEvent event, String name, String user_email, String password) {
-        PreparedStatement psInsert = null;
+    public static SignUpStatus signUpUser(ActionEvent event, String name, String user_email, String noTelp, String password) {
+        CallableStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet resultSet = null;
         Connection conn = null;
@@ -18,17 +17,20 @@ public class AccountModel {
 
         try {
             conn = FoodNyangDatabaseConnection.connection();
-            psCheckUserExists = conn.prepareStatement("SELECT nama, user_email, password  FROM user_info WHERE user_email = ?");
+            psCheckUserExists = conn.prepareStatement("SELECT nama, email FROM user_info WHERE email = ?");
             psCheckUserExists.setString(1, user_email);
             resultSet = psCheckUserExists.executeQuery();
 
             if (resultSet.isBeforeFirst()) {
                 status = SignUpStatus.CONFLICT;
             } else {
-                psInsert = conn.prepareStatement("INSERT INTO user_info VALUES (1234, '0808', ?, ?, 'L', CONVERT(datetime, '2001-08-22'), CONVERT(datetime, '2001-08-22'), ?)");
+                psInsert = conn.prepareCall("" +
+                        "{ call daftarUser(?, ?, ?, ?) }"
+                );
                 psInsert.setString(1, name);
-                psInsert.setString(2, user_email);
-                psInsert.setString(3, password);
+                psInsert.setString(2, noTelp);
+                psInsert.setString(3, user_email);
+                psInsert.setString(4, password);
                 psInsert.executeUpdate();
                 status = SignUpStatus.SUCCEED;
             }

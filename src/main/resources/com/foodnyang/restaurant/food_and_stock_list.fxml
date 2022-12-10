@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.restaurant.ListMenuController">
+   <children>
+      <TableView fx:id="menuTable" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="idMenu" prefWidth="83.19999539852142" text="ID Menu" />
+            <TableColumn fx:id="idResto" prefWidth="83.19999539852142" text="ID Resto" />
+            <TableColumn fx:id="gambarMenu" prefWidth="135.39999389648438" text="Link Gambar Makanan" />
+          <TableColumn fx:id="namaMenu" prefWidth="164.60000610351562" text="Nama Menu" />
+            <TableColumn fx:id="deskripsiMenu" prefWidth="158.5999755859375" text="Deskripsi Menu" />
+            <TableColumn fx:id="harga" prefWidth="95.0" text="Harga Menu" />
+            <TableColumn fx:id="stok" prefWidth="74.79998779296875" text="Stok" />
+        </columns>
+      </TableView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <VBox layoutX="14.0" layoutY="69.0" prefHeight="52.0" prefWidth="148.0">
+               <children>
+                  <TextField fx:id="txtIdResto" promptText="ID Resto">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtGambarMenu" layoutX="10.0" layoutY="10.0" promptText="Link Gambar Makanan">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></TextField>
+                  <TextField fx:id="txtNamaMenu" layoutX="10.0" layoutY="46.0" promptText="Nama Menu" />
+               </children>
+            </VBox>
+            <VBox layoutX="171.0" layoutY="69.0" prefHeight="52.0" prefWidth="148.0">
+               <children>
+                  <TextField fx:id="txtDeskripsiMenu" layoutX="10.0" layoutY="10.0" promptText="Deskripsi Menu">
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtHarga" promptText="Harga Menu">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtStok" layoutX="10.0" layoutY="10.0" promptText="Stok" />
+               </children>
+            </VBox>
+            <VBox layoutX="364.0" layoutY="74.0" prefHeight="78.0" prefWidth="135.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#onAddBtnClicked" prefHeight="26.0" prefWidth="292.0" text="Add">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onEditBtnClicked" prefHeight="26.0" prefWidth="205.0" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onDeleteBtnClicked" prefHeight="26.0" prefWidth="235.0" text="Delete" />
+               </children>
+            </VBox>
+            <Button layoutX="722.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="26.0" prefWidth="63.0" text="Back" />
+            <Label layoutX="14.0" layoutY="14.0" text="Data Menu Makanan">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <TextField fx:id="txtSearchMenu" layoutX="578.0" layoutY="13.0" prefHeight="26.0" prefWidth="135.0" promptText="Search" />
+            <Button layoutX="722.0" layoutY="13.0" mnemonicParsing="false" onAction="#onSearchBtnClicked" onMouseClicked="#onSearchBtnClicked" prefHeight="26.0" prefWidth="63.0" text="Search" />
+         </children></AnchorPane>
+   </children>
+</VBox>

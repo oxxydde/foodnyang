@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class FoodNyangDatabaseConnection {
         static String connectionUrl =
-                "jdbc:sqlserver://LERTGA;" +
+                "jdbc:sqlserver://localhost;" +
                 "database=FoodNyang;" +
                 "encrypt=true;" +
                 "trustServerCertificate=true;" +

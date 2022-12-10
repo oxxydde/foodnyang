@@ -8,6 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -43,6 +46,5 @@ public class CustomerOrderDetailController implements Initializable {
 
     public void onPrintClicked() {
         System.out.println("Print, now jasper here!");
-
     }
 }

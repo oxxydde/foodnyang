@@ -105,6 +105,19 @@ public class LoginController implements Initializable {
                     Button restaurantBtn = new Button("Restoran");
                     restaurantBtn.setId("restaurantBtn");
                     restaurantBtn.setOnMouseClicked(event1 -> {
+                        try {
+                            FlowController.setStage("MainStage");
+                            String css = MainApp.class.getResource("css/style.css").toExternalForm();
+                            FlowController.createScene("RestoMenu", new Scene(FXMLLoader.load(MainApp.class.getResource("restaurant/restaurant_menu.fxml"))));
+
+                            FlowController.setScene("RestoMenu");
+                            FlowController.getScene().getStylesheets().add(css);
+                            FlowController.getStageByKey("LoginRolePrompt").close();
+                            FlowController.removeStage("LoginRolePrompt");
+                            FlowController.removeScene("LoginRolePrompt");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     });
 
                     if (AccountModel.isAdmin(((AccountInfo) FlowController.getSceneByKey("AccountInfo").getUserData()).getId())) optionsBox.getChildren().add(adminBtn);

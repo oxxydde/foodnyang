@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.admin.RestaurantListController">
+   <children>
+      <TableView fx:id="restoTable" prefHeight="272.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="idResto" prefWidth="87.60000914335251" text="ID Restaurant" />
+            <TableColumn fx:id="idMitra" prefWidth="90.0" text="ID Mitra" />
+          <TableColumn fx:id="namaResto" prefWidth="162.19996643066406" text="Nama Restoran" />
+            <TableColumn fx:id="namaOwner" prefWidth="131.4000244140625" text="Nama Owner" />
+            <TableColumn fx:id="tipeResto" prefWidth="120.60003662109375" text="Tipe Restaurant" />
+            <TableColumn fx:id="alamatResto" minWidth="0.0" prefWidth="223.39996337890625" text="Alamat Restaurant" />
+            <TableColumn fx:id="rating" prefWidth="99.5999755859375" text="Rating" />
+        </columns>
+      </TableView>
+      <AnchorPane prefHeight="300.0" prefWidth="799.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Data Restaurant">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" layoutX="429.0" layoutY="72.0" prefHeight="90.0" prefWidth="138.0">
+               <children>
+                  <Button id="main-color-button" fx:id="addButton" mnemonicParsing="false" onMouseClicked="#onAddBtnClicked" prefHeight="26.0" prefWidth="154.0" text="Add">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Button>
+                  <Button id="main-color-button" fx:id="editButton" mnemonicParsing="false" onMouseClicked="#onEditBtnClicked" prefHeight="26.0" prefWidth="154.0" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Button>
+                  <Button id="main-color-button" fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#onDeleteBtnClicked" prefHeight="26.0" prefWidth="192.0" text="Delete">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+            <Button id="main-color-button" fx:id="backButton" layoutX="811.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="26.0" prefWidth="90.0" text="Back" />
+            <VBox layoutX="23.0" layoutY="79.0" prefHeight="59.0" prefWidth="182.0">
+               <children>
+                  <TextField id="text-and-password" fx:id="txtIdMitra" layoutX="10.0" layoutY="10.0" promptText="ID Mitra">
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField id="text-and-password" fx:id="txtNamaResto" promptText="Nama Restaurant">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <TextField fx:id="txtSearchResto" layoutX="683.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" />
+            <Button id="main-color-button" fx:id="searchButton" layoutX="830.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onSearchBtnClicked" prefHeight="26.0" prefWidth="70.0" text="Search" />
+            <VBox layoutX="221.0" layoutY="79.0" prefHeight="54.0" prefWidth="182.0">
+               <children>
+                  <TextField id="text-and-password" fx:id="txtTipeResto" promptText="Tipe Restaurant">
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField id="text-and-password" fx:id="txtAlamat" prefHeight="26.0" prefWidth="160.0" promptText="Alamat Restaurant">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></TextField>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+   </children>
+</VBox>

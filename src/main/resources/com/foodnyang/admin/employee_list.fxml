@@ -5,18 +5,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.admin.EmployeeListController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.admin.EmployeeListController">
    <children>
-      <TableView prefHeight="272.0" prefWidth="900.0">
+      <TableView fx:id="employeeTable" prefHeight="272.0" prefWidth="900.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID Pegawai" />
-          <TableColumn prefWidth="136.80001831054688" text="Nama" />
-            <TableColumn prefWidth="116.80003356933594" text="Email" />
-            <TableColumn prefWidth="146.0" text="No.Telp" />
-            <TableColumn prefWidth="119.4000244140625" text="Tempat Lahir" />
-            <TableColumn prefWidth="104.199951171875" text="Tanggal Lahir" />
-            <TableColumn prefWidth="97.5999755859375" text="Jenis Kelamin" />
-            <TableColumn prefWidth="97.5999755859375" text="Gaji" />
+          <TableColumn fx:id="idPegawai" prefWidth="91.19999539852142" text="ID Pegawai" />
+          <TableColumn fx:id="name" prefWidth="128.4000015258789" text="Nama" />
+            <TableColumn fx:id="email" prefWidth="126.80001831054688" text="Email" />
+            <TableColumn fx:id="phone_num" prefWidth="131.39999389648438" text="No.Telp" />
+            <TableColumn fx:id="birthPlace" prefWidth="119.4000244140625" text="Tempat Lahir" />
+            <TableColumn fx:id="birthDate" prefWidth="104.199951171875" text="Tanggal Lahir" />
+            <TableColumn fx:id="gender" prefWidth="97.5999755859375" text="Jenis Kelamin" />
+            <TableColumn fx:id="tanggalPerekrutan" prefWidth="126.60003662109375" text="Tanggal Perekrutan" />
+            <TableColumn fx:id="pekerjaan" prefWidth="125.60003662109375" text="Pekerjaan" />
+            <TableColumn fx:id="departemen" minWidth="0.0" prefWidth="101.5999755859375" text="Departemen" />
+            <TableColumn fx:id="salary" prefWidth="110.4000244140625" text="Gaji" />
         </columns>
       </TableView>
       <AnchorPane prefHeight="300.0" prefWidth="799.0">
@@ -26,72 +29,53 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <VBox alignment="CENTER" layoutX="494.0" layoutY="77.0" prefHeight="106.0" prefWidth="137.0">
+            <VBox alignment="CENTER" layoutX="586.0" layoutY="86.0" prefHeight="90.0" prefWidth="138.0">
                <children>
-                  <Button id="main-color-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="New">
+                  <Button id="main-color-button" fx:id="addButton" mnemonicParsing="false" onAction="#onAddBtnClicked" onMouseClicked="#onAddBtnClicked" prefHeight="26.0" prefWidth="154.0" text="Add">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin></Button>
-                  <Button id="main-color-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Edit">
+                  <Button id="main-color-button" fx:id="editButton" mnemonicParsing="false" onMouseClicked="#onEditBtnClicked" prefHeight="26.0" prefWidth="154.0" text="Edit">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin></Button>
-                  <Button id="main-color-button" mnemonicParsing="false" prefHeight="26.0" prefWidth="192.0" text="Delete">
+                  <Button id="main-color-button" fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#onDeleteBtnClicked" prefHeight="26.0" prefWidth="192.0" text="Delete">
                      <VBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets />
                      </VBox.margin></Button>
-                  <Button id="main-color-button" mnemonicParsing="false" prefWidth="246.0" text="Save" />
                </children>
             </VBox>
-            <Button id="main-color-button" layoutX="794.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="26.0" prefWidth="90.0" text="Back" />
-            <VBox layoutX="13.0" layoutY="73.0" prefHeight="103.0" prefWidth="181.0">
+            <Button id="main-color-button" fx:id="backButton" layoutX="1158.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="26.0" prefWidth="90.0" text="Back" />
+            <VBox layoutX="51.0" layoutY="86.0" prefHeight="60.0" prefWidth="182.0">
                <children>
-                  <TextField id="text-and-password" promptText="ID Pegawai">
+                  <TextField id="text-and-password" fx:id="txtIdPegawai" promptText="ID Pegawai">
                      <VBox.margin>
                         <Insets bottom="8.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField id="text-and-password" promptText="Nama">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField id="text-and-password" promptText="Email">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField id="text-and-password" promptText="No. Telpon">
+                  <TextField id="text-and-password" fx:id="txtPekerjaan" prefHeight="26.0" prefWidth="160.0" promptText="Pekerjaan">
                      <VBox.margin>
                         <Insets bottom="8.0" />
                      </VBox.margin>
                   </TextField>
                </children>
             </VBox>
-            <VBox layoutX="229.0" layoutY="72.0" prefHeight="82.0" prefWidth="182.0">
+            <TextField fx:id="txtSearchEmployee" layoutX="1032.0" layoutY="11.0" prefHeight="26.0" prefWidth="138.0" />
+            <Button id="main-color-button" fx:id="searchButton" layoutX="1179.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#onSearchBtnClicked" prefHeight="26.0" prefWidth="70.0" text="Search" />
+            <VBox layoutX="286.0" layoutY="86.0" prefHeight="36.0" prefWidth="182.0">
                <children>
-                  <TextField id="text-and-password" prefHeight="26.0" prefWidth="160.0" promptText="Tempat Lahir">
-                     <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin></TextField>
-                  <DatePicker prefHeight="34.0" prefWidth="182.0" promptText="Tanggal Lahir">
+                  <TextField id="text-and-password" fx:id="txtDepartemen" prefHeight="26.0" prefWidth="160.0" promptText="Departemen">
                      <VBox.margin>
                         <Insets bottom="8.0" />
                      </VBox.margin>
-                  </DatePicker>
-                  <TextField id="text-and-password" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="160.0" promptText="Gaji" />
-                  <ComboBox prefHeight="26.0" prefWidth="187.0" promptText="Pilih jenis kelamin">
+                  </TextField>
+                  <TextField id="text-and-password" fx:id="txtSalary" prefHeight="26.0" prefWidth="160.0" promptText="Gaji">
                      <VBox.margin>
-                        <Insets bottom="8.0" />
-                     </VBox.margin></ComboBox>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
-            <TextField layoutX="665.0" layoutY="11.0" prefHeight="26.0" prefWidth="138.0" />
-            <Button id="main-color-button" layoutX="815.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Search" />
-            <Button id="main-color-button" layoutX="272.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="&lt;&lt;" />
-            <Button id="main-color-button" layoutX="342.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="&lt;" />
-            <Button id="main-color-button" layoutX="412.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="&gt;" />
-            <Button id="main-color-button" layoutX="479.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="&gt;&gt;" />
          </children></AnchorPane>
    </children>
 </VBox>

@@ -19,11 +19,11 @@
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin></Button>
-                  <Button id="admin-menu-button" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="362.0" text="Daftar Customer">
+                  <Button id="admin-menu-button" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" onAction="#onDaftarCustomerButtonClick" prefHeight="64.0" prefWidth="362.0" text="Daftar Customer">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin></Button>
-                  <Button id="admin-menu-button" layoutX="10.0" layoutY="156.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="362.0" text="Daftar Restaurant" />
+                  <Button id="admin-menu-button" layoutX="10.0" layoutY="156.0" mnemonicParsing="false" onAction="#onDaftarRestaurantButtonClick" prefHeight="64.0" prefWidth="362.0" text="Daftar Restaurant" />
                </children>
             </VBox>
             <Button id="main-color-button" layoutX="364.0" layoutY="274.0" mnemonicParsing="false" onAction="#onSignOutButtonClick" prefHeight="29.0" prefWidth="96.0" text="Sign Out" />

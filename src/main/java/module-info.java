@@ -2,12 +2,14 @@ module com.foodnyang {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires jasperreports;
 
 //    requires org.controlsfx.controls;
 //    requires com.dlsc.formsfx;
 //    requires org.kordamp.ikonli.javafx;
 //    requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+
 
     opens com.foodnyang to javafx.fxml;
     exports com.foodnyang;
@@ -29,4 +31,6 @@ module com.foodnyang {
     opens com.foodnyang.customer.orderlist to javafx.fxml;
     exports com.foodnyang.customer.profile;
     opens com.foodnyang.customer.profile to javafx.fxml;
+    exports com.foodnyang.restaurant;
+    opens com.foodnyang.restaurant to javafx.fxml;
 }

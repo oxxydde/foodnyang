@@ -24,7 +24,7 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField tf_name;
     @FXML
-    private TextField tf_username;
+    private TextField tf_username, tf_notelp;
     @FXML
     private PasswordField tf_password;
 
@@ -35,7 +35,7 @@ public class SignUpController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 if (!tf_name.getText().trim().isEmpty() && !tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    SignUpStatus result = AccountModel.signUpUser(event, tf_name.getText(), tf_username.getText(), tf_password.getText());
+                    SignUpStatus result = AccountModel.signUpUser(event, tf_name.getText(), tf_username.getText(), tf_notelp.getText(), tf_password.getText());
 
                     switch (result) {
                         case SUCCEED -> {

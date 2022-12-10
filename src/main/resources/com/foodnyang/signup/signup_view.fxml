@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="login-and-menu-color" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.signup.SignUpController">
+<AnchorPane id="login-and-menu-color" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodnyang.signup.SignUpController">
    <children>
       <Label id="title" layoutX="228.0" layoutY="14.0" text="Create an account">
          <font>
@@ -14,11 +14,11 @@
       <AnchorPane layoutX="119.0" layoutY="45.0" prefHeight="335.0" prefWidth="362.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
          <children>
             <PasswordField id="text-and-password" fx:id="tf_password" layoutX="81.0" layoutY="165.0" prefHeight="26.0" prefWidth="204.0" promptText="Password" />
-            <TextField id="text-and-password" fx:id="tf_username" layoutX="80.0" layoutY="120.0" prefHeight="26.0" prefWidth="204.0" promptText="Username" />
-            <TextField id="text-and-password" layoutX="81.0" layoutY="75.0" prefHeight="26.0" prefWidth="204.0" promptText="Email" />
+            <TextField id="text-and-password" fx:id="tf_username" layoutX="81.0" layoutY="81.0" prefHeight="26.0" prefWidth="204.0" promptText="Email" />
             <TextField id="text-and-password" fx:id="tf_name" layoutX="81.0" layoutY="31.0" prefHeight="26.0" prefWidth="204.0" promptText="Name" />
             <Button id="main-color-button" fx:id="sign_up_button" layoutX="110.0" layoutY="227.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="144.0" text="Sign Up" />
             <Button id="main-color-button" fx:id="back_button" layoutX="109.0" layoutY="294.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="144.0" text="Back" />
+            <TextField id="text-and-password" fx:id="tf_notelp" layoutX="81.0" layoutY="125.0" prefHeight="26.0" prefWidth="204.0" promptText="Nomor Telpon" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
