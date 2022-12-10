@@ -2,6 +2,7 @@ module com.foodnyang {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires jasperreports;
 
 //    requires org.controlsfx.controls;
 //    requires com.dlsc.formsfx;
