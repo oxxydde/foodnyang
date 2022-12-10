@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StrukUser" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a03ff8da-0ce2-4b3f-91e7-dd0c1d3b6f88">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="FoodNyang.jrdax"/>
+	<parameter name="orderId" class="java.lang.String" evaluationTime="Early">
+		<parameterDescription><![CDATA[id pesanan]]></parameterDescription>
+		<defaultValueExpression><![CDATA[1001]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT ui.id,
+	ui.nama,
+	ui.nomor_telpon,
+	ui.alamat,
+	ui.email,
+	pe.id_pembeli,
+	ps.id_pesanan,
+	ps.waktu_selsai,
+	ps.total_item,
+	ps.total_harga,
+	ps.status,
+	r.id_restaurant,
+	r.nama AS nama_restaurant, 
+	r.alamat AS alamat_restaurant,
+	me.subtotal_harga,
+	me.jumlah_item,
+	mr.nama AS nama_menu,
+	mr.harga
+FROM user_info AS ui
+	JOIN pembeli AS pe ON 
+	 ui.id = pe.id_pembeli 
+	JOIN pesanan AS ps ON 
+	 pe.id_pembeli = ps.id_pembeli 
+	JOIN restaurant AS r ON 
+	 ps.id_restaurant = r.id_restaurant 
+	JOIN memesan AS me ON 
+	 me.id_pesanan = ps.id_pesanan 
+	JOIN menu_restaurant AS mr ON 
+	 me.id_mr = mr.id_mr 
+WHERE 
+	 ps.status = 'Selsai' AND ps.id_pesanan =  $P{orderId}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+	</field>
+	<field name="nomor_telpon" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomor_telpon"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomor_telpon"/>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.label" value="alamat"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+	</field>
+	<field name="id_pembeli" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pembeli"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pembeli"/>
+	</field>
+	<field name="id_pesanan" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pesanan"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pesanan"/>
+	</field>
+	<field name="waktu_selsai" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="waktu_selsai"/>
+		<property name="com.jaspersoft.studio.field.label" value="waktu_selsai"/>
+	</field>
+	<field name="total_item" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="total_item"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_item"/>
+	</field>
+	<field name="total_harga" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="total_harga"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_harga"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+	</field>
+	<field name="id_restaurant" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_restaurant"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_restaurant"/>
+	</field>
+	<field name="nama_restaurant" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_restaurant"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_restaurant"/>
+	</field>
+	<field name="alamat_restaurant" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alamat_restaurant"/>
+		<property name="com.jaspersoft.studio.field.label" value="alamat_restaurant"/>
+	</field>
+	<field name="subtotal_harga" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal_harga"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal_harga"/>
+	</field>
+	<field name="jumlah_item" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="jumlah_item"/>
+		<property name="com.jaspersoft.studio.field.label" value="jumlah_item"/>
+	</field>
+	<field name="nama_menu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_menu"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_menu"/>
+	</field>
+	<field name="harga" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="harga"/>
+		<property name="com.jaspersoft.studio.field.label" value="harga"/>
+	</field>
+	<sortField name="id" order="Descending"/>
+	<sortField name="nama" order="Descending"/>
+	<sortField name="nomor_telpon" order="Descending"/>
+	<sortField name="alamat" order="Descending"/>
+	<sortField name="email" order="Descending"/>
+	<sortField name="waktu_selsai" order="Descending"/>
+	<sortField name="total_item" order="Descending"/>
+	<sortField name="total_harga" order="Descending"/>
+	<sortField name="id_restaurant" order="Descending"/>
+	<sortField name="subtotal_harga" order="Descending"/>
+	<sortField name="jumlah_item" order="Descending"/>
+	<sortField name="harga" order="Descending"/>
+	<group name="id">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+	</group>
+	<group name="nama">
+		<groupExpression><![CDATA[$F{nama}]]></groupExpression>
+	</group>
+	<group name="nomor_telpon">
+		<groupExpression><![CDATA[$F{nomor_telpon}]]></groupExpression>
+	</group>
+	<group name="alamat">
+		<groupExpression><![CDATA[$F{alamat}]]></groupExpression>
+	</group>
+	<group name="email">
+		<groupExpression><![CDATA[$F{email}]]></groupExpression>
+	</group>
+	<group name="waktu_selsai">
+		<groupExpression><![CDATA[$F{waktu_selsai}]]></groupExpression>
+	</group>
+	<group name="total_item">
+		<groupExpression><![CDATA[$F{total_item}]]></groupExpression>
+	</group>
+	<group name="total_harga">
+		<groupExpression><![CDATA[$F{total_harga}]]></groupExpression>
+	</group>
+	<group name="id_restaurant">
+		<groupExpression><![CDATA[$F{id_restaurant}]]></groupExpression>
+	</group>
+	<group name="alamat_restaurant">
+		<groupExpression><![CDATA[$F{alamat_restaurant}]]></groupExpression>
+	</group>
+	<group name="subtotal_harga">
+		<groupExpression><![CDATA[$F{subtotal_harga}]]></groupExpression>
+	</group>
+	<group name="jumlah_item">
+		<groupExpression><![CDATA[$F{jumlah_item}]]></groupExpression>
+	</group>
+	<group name="nama_menu">
+		<groupExpression><![CDATA[$F{nama_menu}]]></groupExpression>
+	</group>
+	<group name="harga">
+		<groupExpression><![CDATA[$F{harga}]]></groupExpression>
+	</group>
+	<group name="nama_restaurant">
+		<groupExpression><![CDATA[$F{nama_restaurant}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="459" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<textField>
+				<reportElement x="22" y="40" width="511" height="60" uuid="d5208e21-9a71-4a1d-b374-86d3b03f3ede"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="46" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp#,##0").format(Double.valueOf($F{total_harga}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="43" y="120" width="468" height="30" uuid="7dfb9a5b-1263-4800-ba30-d62714225056"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_restaurant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="160" width="350" height="58" uuid="40ba3c37-6bb6-49ee-8a5c-31a5449027aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat_restaurant}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="89" y="243" width="374" height="1" uuid="4cc11d5b-ffe5-476d-a3e4-fe6f076b2137"/>
+			</line>
+			<staticText>
+				<reportElement x="76" y="258" width="150" height="30" uuid="0a04626b-ca06-417b-bceb-bfb6b784b47d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transaction Detail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="360" width="150" height="30" uuid="f9de7c7b-1e46-4ff5-b650-d6074b2405e7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="390" width="150" height="30" uuid="a70bb177-a1a3-47ff-8e68-74485910f34f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="420" width="150" height="30" uuid="589b1c19-7fe9-4901-a188-38394b6ffac6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Order ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="376" y="330" width="100" height="30" uuid="45859b99-6c39-4a20-a7a0-476c5414905a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="390" width="86" height="30" uuid="f28e01da-492f-4a1e-84da-15dbe01664af"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktu_selsai}.toGMTString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="420" width="100" height="30" uuid="3b376380-d259-424d-8ea1-51bc3ded95c4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_pesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="360" width="100" height="30" uuid="51d4d9b1-d1ee-4d85-aad2-109bd8900775"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktu_selsai}.getHours()+":"+$F{waktu_selsai}.getMinutes()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="76" y="330" width="150" height="30" uuid="3c48fbd8-3510-4721-87cb-8018e1a13a1b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="300" width="150" height="30" uuid="fd9c6da2-99af-4ffb-b2fa-0fb20f558522"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Payment Method]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="300" width="50" height="30" uuid="35bbf02f-b638-4284-b1aa-554d2fd0b947"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="421" y="12" width="68" height="30" uuid="f4c053d1-717d-4c26-9eb7-e28d705f60ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="12" width="68" height="30" uuid="e4b2b547-e3a2-4c81-8602-87890362e6cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="12" width="68" height="30" uuid="3f091abd-bc3e-4d0f-bf77-b1d667cc25aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="12" width="141" height="30" uuid="3022e185-bedd-4db2-9c8f-b8ecb34dbc73"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="12" width="36" height="30" uuid="1aa722f4-6590-436a-a085-a5549ae2228b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<line>
+				<reportElement x="64" y="5" width="427" height="1" uuid="ff036205-5226-4fb3-95b4-a4b0040d5351"/>
+			</line>
+			<line>
+				<reportElement x="64" y="52" width="427" height="1" uuid="ffeb76b1-94f6-4392-afab-95cfd2b97378"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.spreadsheet.SpreadsheetLayout"/>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="115" y="3" width="131" height="47" uuid="0948e9cb-859d-4efa-8f4c-811ad6c160bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="405" y="16" width="100" height="20" uuid="336dd062-5afd-4b7f-a52c-9174bd319f31"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp#,##0").format(Double.valueOf($F{subtotal_harga}))]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="347" y="16" width="54" height="20" uuid="0c0dfb45-fc63-4f15-b49b-2a467d3e6d83"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_item} + " unit"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="248" y="16" width="94" height="20" uuid="94356e03-9899-45fc-a6b0-1b3f462f3e9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp#,##0").format(Double.valueOf($F{harga}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="16" width="36" height="20" uuid="8265ba30-b590-40d4-9cbc-c91047dd2e90"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="42">
+			<textField>
+				<reportElement x="110" y="15" width="332" height="13" uuid="058e698d-027b-4e5e-b890-dcb46b6b2a93"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+ $V{PAGE_NUMBER} + " of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="275" y="30" width="41" height="18" uuid="880d4c9f-cd99-4bf4-853c-ef81f65b7240"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="64" y="17" width="427" height="1" uuid="efec15f2-bc45-4665-8f91-6687442d3963"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="347" y="29" width="54" height="20" uuid="2d7a5799-42ac-4eaf-8f74-e587f5dd48aa"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_item} + " unit"]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="405" y="29" width="100" height="20" uuid="a2005533-1349-4753-9c10-7a7c37ab341d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("Rp#,##0").format(Double.valueOf($F{total_harga}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
